@@ -10,13 +10,14 @@ import VistaCalendario from "./Citas/VistaClendario";
 import EditarCita from "./Citas/EditarCitas";
 import CitasCliente from "./Dashboard/CitasCliente";
 import TratamientosCliente from "./Dashboard/TratamientosCliente";
+import ProductosCliente from "./Dashboard/ProductosCliente";
 
 
 
 function App() {
   return (
     <div>
-      <TratamientosCliente />
+      <ProductosCliente />
     </div>
   );
 }
