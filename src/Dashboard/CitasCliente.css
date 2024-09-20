@@ -1,0 +1,86 @@
+/* Fondo de la página con dos colores */
+.appointments-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #d0e9f5 50%, #FFF4e4 50%);
+    padding: 30px 20px; /* Reducimos el padding general */
+  }
+  
+  /* Organizando las tarjetas con CSS Grid */
+  .appointments-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Aumenta el tamaño mínimo de las tarjetas a 300px */
+    gap: 15px; /* Reducir el espacio entre las tarjetas */
+    max-width: 80%; /* Limitar el ancho máximo del contenedor */
+    width: 100%;
+    justify-content: center;
+  }
+  
+  /* Tarjetas con fondo blanco */
+  .appointment-card {
+    padding: 15px; /* Reducir el padding interno de las tarjetas */
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .appointment-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Información dentro de las tarjetas */
+  .appointment-info h3 {
+    font-size: 24px; /* Ajustamos ligeramente el tamaño del texto */
+    color: #333;
+  }
+  
+  .appointment-info p {
+    margin: 6px 0; /* Reducir el espacio entre párrafos */
+    font-size: 16px; /* Reducimos ligeramente el tamaño del texto */
+    color: #555;
+  }
+  
+  .status {
+    font-weight: bold;
+  }
+  
+  .status.confirmada {
+    color: #2ecc71;
+  }
+  
+  .status.pendiente {
+    color: #ff0000;
+  }
+  
+  /* Acciones de las citas */
+  .appointment-actions {
+    margin-top: 10px; /* Reducimos el espacio superior en las acciones */
+  }
+  
+  .confirm-button, .cancel-button {
+    width: 100%;
+    padding: 10px; /* Reducimos el padding de los botones */
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .confirm-button {
+    background-color: #0099ff;
+    color: white;
+    margin-bottom: 8px;
+  }
+  
+  .cancel-button {
+    background-color: #ff5454;
+    color: white;
+  }
+  
+  .confirm-button:hover, .cancel-button:hover {
+    opacity: 0.9;
+  }

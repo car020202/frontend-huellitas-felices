@@ -8,13 +8,15 @@ import CrearPlanilla from "./EmployeeDashboard/CrearPlanilla";
 import FormularioCita from "./Citas/FormularioCita";
 import VistaCalendario from "./Citas/VistaClendario";
 import EditarCita from "./Citas/EditarCitas";
+import CitasCliente from "./Dashboard/CitasCliente";
+import TratamientosCliente from "./Dashboard/TratamientosCliente";
 
 
 
 function App() {
   return (
     <div>
-      <EditarCita />
+      <TratamientosCliente />
     </div>
   );
 }

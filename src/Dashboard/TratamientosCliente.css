@@ -1,0 +1,70 @@
+.tratamientos-info-container {
+    padding: 40px 100px; /* Espacio adicional alrededor del contenedor */
+    text-align: center;
+    background: linear-gradient(135deg, #d0e9f5 50%, #FFF4e4 50%); /* Fondo igual que el anterior */
+    min-height: 100vh; /* Asegura que cubra toda la pantalla */
+  }
+  
+  .tratamientos-info-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-template-rows: auto;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .tratamiento-info-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 50px; /* Aumentar el padding de la tarjeta */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden; /* Asegura que el contenido no se salga */
+  }
+  
+  .tratamiento-info-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Imágenes de los tratamientos */
+  .tratamiento-img {
+    width: 100%;
+    height: auto;
+    max-height: 550px; 
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 15px; /* Aumentar el espacio debajo de la imagen */
+  }
+  
+  /* Información dentro de las tarjetas */
+  .tratamiento-info {
+    text-align: left;
+  }
+  
+  .tratamiento-info h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .tratamiento-info p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+  .tratamiento-info strong {
+    color: #000;
+  }
+  
+  /* Ajuste para pantallas más pequeñas */
+  @media (max-width: 768px) {
+    .tratamientos-info-list {
+      grid-template-columns: 1fr; /* Para pantallas pequeñas, mostrar una sola columna */
+    }
+  }
+  
