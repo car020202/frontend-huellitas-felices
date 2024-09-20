@@ -1,0 +1,40 @@
+.planilla-section {
+    padding: 2rem;
+    background-color: #E5F3FF;
+  }
+  
+  .planilla-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #FFF5DD;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .planilla-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .planilla-table th,
+  .planilla-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .planilla-table th {
+    background-color: #DCEEFF;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .planilla-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .planilla-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
