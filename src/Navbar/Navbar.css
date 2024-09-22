@@ -1,0 +1,8 @@
+.navbar-brand img {
+    margin: 0; /* Elimina cualquier margen alrededor de la imagen del logo */
+  }
+  
+  .navbar-nav .nav-item {
+    margin: 0; /* Elimina márgenes adicionales entre los enlaces */
+  }
+  

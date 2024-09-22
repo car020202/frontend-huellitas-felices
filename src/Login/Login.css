@@ -10,7 +10,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 60px; /* Asegura que no se solape con la navbar */
 }
 
 .background::before {
@@ -29,14 +28,15 @@ body {
 
 .overlay {
   background-color: rgba(189, 222, 252, 0.77); /* Fondo translúcido */
-  padding: 20px;
-  border-radius: 10px;
+  padding: 1rem; /* Añade algo de padding para darle espacio */
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 90%;
   max-width: 1200px;
+  margin: auto; /* Centra la capa */
 }
 
 .content-container {
@@ -44,7 +44,9 @@ body {
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap; /* Permite que los elementos se apilen en pantallas pequeñas */
 }
+
 
 .login-left {
   flex: 1;
@@ -54,10 +56,51 @@ body {
 }
 
 .dog-image {
-  max-width: 80%; /* Ajusta la imagen para que no sea tan grande */
+  max-width: 80%; /* Mantén el tamaño de la imagen */
   height: auto;
   border-radius: 10px;
+  position: relative; /* Asegúrate de que la imagen pueda ser reposicionada */
+  top: -200px; /* Sube la imagen hacia arriba */
+  transform: translateY(-20px); /* Asegura que suba aún más si es necesario */
 }
+
+/* Media Queries para hacerlo responsive */
+@media (max-width: 768px) {
+  .content-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .login-left,
+  .login-right {
+    flex: unset;
+    width: 100%;
+  }
+
+  .dog-image {
+    display: none; /* Desaparece la imagen del perro en pantallas más pequeñas */
+  }
+
+  .login-box {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-box {
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  .login-button {
+    width: 70%;
+  }
+}
+
+
+
 
 .login-right {
   flex: 1;
@@ -68,44 +111,74 @@ body {
 
 .login-box {
   background-color: rgba(255, 255, 255, 0.9);
-  padding: 2rem;
+  padding: 3rem; /* Aumenta el padding para darle más espacio interno */
   border-radius: 10px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  width: 320px;
+  width: 100%; /* Haz que la caja ocupe todo el ancho disponible */
+  max-width: 500px; /* Limita el ancho máximo */
+  height: auto; /* Ajusta el alto dinámicamente */
   text-align: center;
+  margin: 1rem; /* Añade margen para evitar que toque otros elementos */
+}
+
+/* Media Queries para hacerlo responsive */
+@media (max-width: 768px) {
+  .overlay {
+    width: 95%; /* Ajusta el ancho de la capa translúcida en pantallas medianas */
+  }
+
+  .content-container {
+    flex-direction: column; /* Apila los elementos verticalmente en pantallas más pequeñas */
+  }
+
+  .login-box {
+    padding: 2rem; /* Reduce el padding en pantallas más pequeñas */
+    max-width: 90%; /* Reduce el ancho máximo en pantallas medianas */
+  }
+}
+
+@media (max-width: 480px) {
+  .overlay {
+    width: 100%; /* Asegura que la capa ocupe todo el ancho en pantallas muy pequeñas */
+  }
+
+  .login-box {
+    padding: 1.5rem; /* Reduce el padding para pantallas muy pequeñas */
+    max-width: 100%; /* Asegura que la caja ocupe todo el ancho en pantallas muy pequeñas */
+  }
 }
 
 .login-box h2 {
-  margin-bottom: 1.5rem;
-  font-size: 1.8rem;
+  margin-bottom: 2rem; /* Aumenta el margen inferior */
+  font-size: 2.4rem; /* Aumenta el tamaño del título */
   color: #333;
 }
 
 .input-group {
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.5rem; /* Aumenta el espacio entre los campos */
 }
 
 .input-group label {
   display: block;
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
+  margin-bottom: 0.75rem; /* Aumenta el margen inferior del label */
+  font-size: 1.2rem; /* Aumenta el tamaño del texto de los labels */
   color: #555;
 }
 
 .input-group input {
   width: 100%;
-  padding: 0.6rem;
-  font-size: 1rem;
+  padding: 1rem; /* Aumenta el padding para hacer los inputs más grandes */
+  font-size: 1.2rem; /* Aumenta el tamaño del texto dentro del input */
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
 .login-button {
-  width: 50%;
-  padding: 0.75rem;
+  width: 60%; /* Aumenta el ancho del botón */
+  padding: 1rem; /* Aumenta el padding del botón */
   background-color: #007bff;
   color: white;
-  font-size: 1rem;
+  font-size: 1.4rem; /* Aumenta el tamaño del texto del botón */
   border: none;
   border-radius: 25px;
   cursor: pointer;
@@ -114,6 +187,7 @@ body {
 .login-button:hover {
   background-color: #0056b3;
 }
+
 
 .fa-user,
 .fa-lock {

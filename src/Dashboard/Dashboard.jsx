@@ -39,7 +39,7 @@ function Dashboard() {
         </div>
       </section>
 
-      <section className="cards">
+      <div className="cards">
         <div className="card">
           <img src={datingImage} alt="Dating" />
           <div className="card-text">
@@ -61,7 +61,7 @@ function Dashboard() {
             <p>Products for the care and maintenance of your friend.</p>
           </div>
         </div>
-      </section>
+      </div>
 
       <section className="treatments-section">
         <div className="treatments-content">

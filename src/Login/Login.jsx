@@ -1,7 +1,7 @@
 import React from "react";
 import "./Login.css";
 import dogImage from "../assets/perritohome2.png"; // Imagen del perro
-import Navbar from "../Navbar/NavbarLogin";
+import Navbar from "../Navbar/Navbar";
 
 const Login = () => {
   return (

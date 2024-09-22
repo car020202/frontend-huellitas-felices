@@ -1,253 +1,316 @@
 /* Estilos generales */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  /* Banner */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Banner */
 .banner {
   padding: 7rem 0;
-  background: linear-gradient(135deg, #E5F3FF 50%, #FFF5DD 50%); /* Gradiente con dos colores */
+  background: linear-gradient(135deg, #E5F3FF 50%, #FFF5DD 50%);
   position: relative;
   min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
 }
 
 .banner-container {
-  padding-left: 25rem;  /* Añadir espacio del lado izquierdo */
-  padding-right: 25rem; /* Añadir espacio del lado derecho */
+  padding-left: 25rem;
+  padding-right: 25rem;
 }
 
-.banner-content {
-  margin-left: 10rem;  /* Mover el texto hacia la izquierda */
-}
-
-.banner-image {
-  margin-right: 10rem;
+/* Imagen del perro */
+.dog-image {
+  max-width: 300px;
+  max-height: 400px;
   position: relative;
-  display: flex;
-  justify-content: flex-end; /* Imagen hacia el lado derecho */
+  margin-top: 0;
+  z-index: 1;
 }
 
+/* Formas de fondo */
 .background-shapes {
   position: absolute;
-  top: 0;
-  left: -40px; /* Mover las formas un poco a la izquierda */
-  min-width: 420px;
-  min-height: 420px !important;  /* Ajustar tamaño de las formas */
-  z-index: -1;   /* Asegurarse que estén detrás del perro */
-}
-
-.dog-image {
+  top: 100px;
+  left: -40px;
   min-width: 350px;
-  min-height: 450px !important; 
-  margin-left: -30px; /* Mover el perro un poco a la izquierda */
-  z-index: 1;   /* Imagen del perro por delante */
+  min-height: 450px;
+  z-index: -1;
 }
 
-  
-  /* Estilos para las tarjetas (cards) */
+/* Estilos generales de las tarjetas */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 2rem;
+}
+
+.card {
+  background-color: #FFF5DD;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 2px solid #E6DFFF;
+  width: 100%; /* Hacemos que la tarjeta ocupe el 100% del espacio disponible */
+  max-width: 600px; /* Limitamos el ancho máximo en pantallas grandes */
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Media Queries - Para pantallas móviles */
+@media (max-width: 768px) {
   .cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-direction: column; /* Apila las tarjetas verticalmente en pantallas pequeñas */
     gap: 20px;
-    padding: 2rem;
-  }
-  .banner {
-    height: 100vh; /* Ajustar según la altura que desees */
-  }
-  
-  .banner-image img {
-    max-height: 300px;
-  }
-  
-  .card {
-    transition: transform 0.3s ease;
-  }
-  
-  .card:hover {
-    transform: scale(1.05);
-  }
-  
-  .card {
-    background-color: #FFF5DD;
-    border-radius: 20px;
-    padding: 2rem; /* Puedes aumentar este padding si deseas más espacio */
-    height: 350px; /* Aumentar la altura de las tarjetas */
-    flex-basis: calc(33.33% - 20px); /* Tres tarjetas por fila en pantallas grandes */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-    display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    text-align: left;
-    border: 2px solid #E6DFFF;
   }
-  
-  .card:hover {
-    transform: scale(1.05);
+
+  .card {
+    width: 100%; /* Las tarjetas ocuparán el 100% del ancho en pantallas móviles */
+    max-width: 95%; /* Ajusta el ancho para ocupar casi todo el espacio */
+    margin-bottom: 1rem;
   }
-  
+
   .card img {
-    width: 320px;
-    height: 320px; /* Aumentar la altura de las imágenes para hacerlas más grandes */
-    object-fit: cover;
-    border-radius: 10px;
-    margin-right: 1rem;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
   }
-  
-  .card-content {
-    display: flex;
+
+  .card h3 {
+    font-size: 1.5rem; /* Ajusta el tamaño del texto para pantallas pequeñas */
+  }
+
+  .card p {
+    font-size: 1rem; /* Ajusta el tamaño del texto para pantallas pequeñas */
+  }
+}
+
+
+
+
+
+
+/* Sección de tratamientos */
+.treatments-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem 0;
+  background-color: #E5F3FF;
+  flex-wrap: wrap;
+}
+
+.treatments-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+
+.treatments-image img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.treatments-text {
+  text-align: left;
+}
+
+.treatments-text h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.treatments-text p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.treatment-go-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #FFEBCD;
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* Sección de contacto */
+.contact-section {
+  background-color: #ffffff;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background-color: #FDF0DC;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 1200px;
+  flex-wrap: wrap;
+}
+
+.contact-details {
+  display: flex;
+  justify-content: space-around;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+
+.contact-icon img {
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+}
+
+.contact-info p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.contact-image img {
+  width: 200px;
+  height: auto;
+}
+
+/* Media Queries - Para pantallas medianas y pequeñas */
+
+/* Para pantallas medianas (1024px o menos) */
+@media (max-width: 1024px) {
+  .cards {
+    flex-direction: row; /* Mantén las tarjetas en fila en tablets */
+    justify-content: space-around;
+  }
+
+  .card {
+    flex-basis: calc(50% - 20px); /* Dos tarjetas por fila en pantallas medianas */
+  }
+
+  .dog-image {
+    max-width: 250px;
+    max-height: 350px;
+  }
+
+  .background-shapes {
+    top: 50px;
+    min-width: 250px;
+    min-height: 300px;
+  }
+
+  .treatments-section,
+  .contact-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+  }
+
+  .treatments-content,
+  .contact-container {
+    padding: 1rem;
     flex-direction: column;
   }
-  
-  .card h3 {
-    font-size: 1.5rem;
-    color: #000;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
+}
+
+/* Para pantallas pequeñas (768px o menos) */
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column; /* Apila las tarjetas verticalmente en pantallas pequeñas */
+    gap: 20px;
   }
-  
-  .card p {
-    font-size: 1rem;
-    color: #333;
-  }
-  
-  /* Media query para pantallas pequeñas (smartphones) */
-  @media (max-width: 768px) {
-    .card {
-      flex-basis: 100%; /* Una tarjeta por fila en pantallas pequeñas */
-      flex-direction: column; /* Volver a columna en pantallas pequeñas */
-    }
-  
-    .cards {
-      padding: 1rem;
-      gap: 15px;
-    }
-  
-    .card img {
-      margin-bottom: 1rem; /* Imagen encima del texto en pantallas pequeñas */
-    }
-  }
-  
-  /* Colores personalizados para cada tarjeta */
-  .card:nth-child(1) {
-    background-color: #FFF5DD;
-  }
-  
-  .card:nth-child(2) {
-    background-color: #DCEEFF;
-  }
-  
-  .card:nth-child(3) {
-    background-color: #FFF5DD;
-  }
-  
-  
-  
-  /* Sección de tratamientos */
-  .treatments-section {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 2rem 0;
-    background-color: #E5F3FF;
-    flex-wrap: wrap; /* Flexibilidad en pantallas pequeñas */
-  }
-  
-  .treatments-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem;
-    flex-wrap: wrap;
-  }
-  
-  .treatments-image img {
-    width: 500px;
-    height: auto;
-    border-radius: 10px;
-  }
-  
-  .treatments-text {
-    text-align: left;
-  }
-  
-  .treatments-text h2 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .treatments-text p {
-    font-size: 1.2rem;
+
+  .card {
+    flex-basis: 100%; /* Cada tarjeta ocupa el 100% del ancho en pantallas pequeñas */
     margin-bottom: 1rem;
   }
-  
-  .treatment-go-button {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: #FFEBCD;
-    color: black;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
+
+  .card img {
+    max-width: 100%;
+    height: auto;
   }
-  
-  /* Sección de contacto */
+
+  .dog-image {
+    max-width: 200px;
+    max-height: 300px;
+  }
+
+  .background-shapes {
+    top: 30px;
+    min-width: 200px;
+    min-height: 250px;
+  }
+
+  .treatments-section,
   .contact-section {
-    background-color: #ffffff;
-    padding: 2rem 0;
-    display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    flex-wrap: wrap;
+    padding: 1rem 0;
   }
-  
+
+  .treatments-content,
   .contact-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    background-color: #FDF0DC;
-    border-radius: 15px;
-    padding: 2rem;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 1200px;
-    flex-wrap: wrap;
+    padding: 1rem;
+    flex-direction: column;
   }
-  
-  .contact-details {
-    display: flex;
-    justify-content: space-around;
-    flex: 1;
-    flex-wrap: wrap;
-  }
-  
-  .contact-info {
-    display: flex;
-    align-items: center;
-    padding: 0 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  .contact-icon img {
-    width: 40px; 
-    height: 40px;
-    margin-right: 15px;
-  }
-  
-  .contact-info p {
-    font-size: 1.1rem;
-    font-weight: 500;
-    margin: 0;
-  }
-  
-  .contact-image img {
-    width: 200px;
-    height: auto;
-  }
-  
+}
