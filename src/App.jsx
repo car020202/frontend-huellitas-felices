@@ -17,7 +17,7 @@ import ProductosCliente from "./Dashboard/ProductosCliente";
 function App() {
   return (
     <div>
-      <ProductosCliente />
+      <Login />
     </div>
   );
 }
