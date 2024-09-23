@@ -1,6 +1,6 @@
 import React from "react";
 import "./Login.css";
-import dogImage from "../assets/perritohome2.png"; // Imagen del perro
+import dogImage from "../assets/perro.png"; // Imagen del perro
 import Navbar from "../Navbar/Navbar";
 
 const Login = () => {

@@ -2,7 +2,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Arial', sans-serif;
+ 
 }
+
 
 .background {
   position: relative;
@@ -10,6 +12,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden; /* Desactiva el scroll en toda la página */
+  
 }
 
 .background::before {
@@ -27,7 +31,9 @@ body {
 }
 
 .overlay {
-  background-color: rgba(189, 222, 252, 0.77); /* Fondo translúcido */
+  background-color: rgb(230, 243, 255, 0.77);  /* Fondo translúcido */
+  /*background-color: #E5F3FF;  /* Fondo translúcido */
+
   padding: 1rem; /* Añade algo de padding para darle espacio */
   border-radius: 20px;
   display: flex;
@@ -36,6 +42,7 @@ body {
   align-items: center;
   width: 90%;
   max-width: 1200px;
+  max-height: 700px;
   margin: auto; /* Centra la capa */
 }
 
@@ -56,13 +63,15 @@ body {
 }
 
 .dog-image {
-  max-width: 80%; /* Mantén el tamaño de la imagen */
-  height: auto;
+  min-width: 500px;
+  min-height: 700px;
+  
   border-radius: 10px;
-  position: relative; /* Asegúrate de que la imagen pueda ser reposicionada */
-  top: -200px; /* Sube la imagen hacia arriba */
-  transform: translateY(-20px); /* Asegura que suba aún más si es necesario */
+  
+  top: -150px; /* Sube la imagen aún más hacia arriba para compensar el aumento de tamaño */
+  transform: translateY(-40px); /* Ajusta la posición para que se vea correctamente */
 }
+
 
 /* Media Queries para hacerlo responsive */
 @media (max-width: 768px) {

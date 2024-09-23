@@ -15,6 +15,7 @@
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
+  max-height: 650px;
 }
 
 .banner-container {
@@ -41,90 +42,132 @@
   z-index: -1;
 }
 
-/* Estilos generales de las tarjetas */
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
 .cards {
   display: flex;
   flex-wrap: wrap;
+  gap: 50px;
   justify-content: space-between;
-  gap: 20px;
-  padding: 2rem;
+  max-width: 1900px;
 }
 
 .card {
-  background-color: #FFF5DD;
-  border-radius: 20px;
-  padding: 1.5rem;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
+  width: 30%;
+  min-width: 300px;
+  height: 300px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  border: 2px solid #E6DFFF;
-  width: 100%; /* Hacemos que la tarjeta ocupe el 100% del espacio disponible */
-  max-width: 600px; /* Limitamos el ancho máximo en pantallas grandes */
+  justify-content: space-between;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
-
-.card:hover {
-  transform: scale(1.05);
+.cards .card:nth-child(1) {
+  background-color: #E5F3FF; /* Color dorado para la primera card */
+}
+.cards .card:nth-child(2) {
+  background-color: #FFF5DD; /* Color verde claro para la segunda card */
+}
+.cards .card:nth-child(3) {
+  background-color: #E5F3FF; /* Color azul cielo para la tercera card */
 }
 
 .card img {
   width: 100%;
-  max-width: 250px;
-  height: auto;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 1rem;
+  height: 150px;
+  object-fit: contain;
+  margin: 0 auto;
 }
 
-.card-content {
+.card-text {
+  padding: 10px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }
 
-.card h3 {
+.card-text h3 {
   font-size: 1.5rem;
-  color: #000;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+  margin: 0;
 }
 
-.card p {
+.card-text p {
   font-size: 1rem;
-  color: #333;
+  margin: 0;
 }
 
-/* Media Queries - Para pantallas móviles */
-@media (max-width: 768px) {
-  .cards {
-    flex-direction: column; /* Apila las tarjetas verticalmente en pantallas pequeñas */
-    gap: 20px;
-    align-items: center;
-  }
-
+/* Ajustes para pantallas grandes */
+@media screen and (min-width: 1200px) {
   .card {
-    width: 100%; /* Las tarjetas ocuparán el 100% del ancho en pantallas móviles */
-    max-width: 95%; /* Ajusta el ancho para ocupar casi todo el espacio */
-    margin-bottom: 1rem;
+    width: 25%;
+    height: 350px;
   }
 
   .card img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 1rem;
+    height: 200px;
   }
 
-  .card h3 {
-    font-size: 1.5rem; /* Ajusta el tamaño del texto para pantallas pequeñas */
+  .card-text h3 {
+    font-size: 1.75rem;
   }
 
-  .card p {
-    font-size: 1rem; /* Ajusta el tamaño del texto para pantallas pequeñas */
+  .card-text p {
+    font-size: 1.1rem;
   }
 }
 
+/* Ajustes para pantallas medianas */
+@media screen and (max-width: 968px) {
+  .card {
+    width: 90%;
+    height: 250px;
+  }
 
+  .card img {
+    width: 80%;
+    height: auto;
+  }
+
+  .card-text h3 {
+    font-size: 1rem;
+  }
+
+  .card-text p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Ajustes para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+  .cards {
+    display: block; /* Cambiamos de flexbox a block */
+  }
+
+  .card {
+    width: 100%; /* Hacemos que cada card ocupe todo el ancho */
+    max-height: 550px;
+  }
+
+  .card img {
+    width: 100%;
+  }
+
+  .card-text h3 {
+    font-size: 0.9rem;
+  }
+
+  .card-text p {
+    font-size: 0.8rem;
+  }
+}
 
 
 
@@ -172,13 +215,23 @@
 
 .treatment-go-button {
   display: inline-block;
-  padding: 0.5rem 1rem;
+  padding: 1rem 2rem;
   background-color: #FFEBCD;
   color: black;
   text-decoration: none;
-  border-radius: 5px;
+  border: 1px solid black;
   font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  
 }
+
+.treatment-go-button:hover {
+  background-color: #FFD700; /* Cambia el color al pasar el ratón */
+}
+
+
 
 /* Sección de contacto */
 .contact-section {

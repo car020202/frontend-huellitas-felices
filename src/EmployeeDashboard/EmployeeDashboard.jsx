@@ -1,6 +1,5 @@
 import React from "react";
 import Navbar from "../Navbar/NavbarLogiado";
-import "./EmployeeDashboard.css";
 import dogImage from "../assets/perritohome.png"; // Imagen del perro en el banner
 import backgroundShapes from "../assets/fondo.png"; // Imagen de formas detrás del perro
 
@@ -52,32 +51,6 @@ function EmployeeDashboard() {
           <div className="card-text">
             <h3>Crear Planilla</h3>
             <p></p>
-          </div>
-        </div>
-        <div className="card">
-          <img src={productsImage} alt="Products" />
-          <div className="card-text">
-            <h3>Products</h3>
-            <p>Products for the care and maintenance of your friend.</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="treatments-section">
-        <div className="treatments-content">
-          <div className="treatments-image">
-            <img
-              src={TreatmentsImage}
-              alt="Veterinarian and Dog"
-              className="treatment-doctor-image"
-            />
-          </div>
-          <div className="treatments-text">
-            <h2>Treatments</h2>
-            <p>Rest easy, your beloved friend is in safe hands.</p>
-            <a href="#go" className="treatment-go-button">
-              Go
-            </a>
           </div>
         </div>
       </section>
