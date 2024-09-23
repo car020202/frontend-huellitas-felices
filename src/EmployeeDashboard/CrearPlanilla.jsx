@@ -28,6 +28,7 @@ function CrearPlanilla() {
   return (
     <>
       <Navbar />
+      <div className="background">
 
       <div className="planilla-container">
         <div className="image-container">
@@ -153,6 +154,7 @@ function CrearPlanilla() {
             </button>
           </form>
         </div>
+      </div>
       </div>
     </>
   );

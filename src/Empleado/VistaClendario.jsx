@@ -10,6 +10,7 @@ const VistaCalendarioCitas = () => {
   return (
     <>
       <Navbar />
+      <div className="background">
 
       {/* Contenedor para el calendario */}
       <div className="containerCalendario">
@@ -68,6 +69,7 @@ const VistaCalendarioCitas = () => {
             </tbody>
           </table>
         </div>
+      </div>
       </div>
     </>
   );

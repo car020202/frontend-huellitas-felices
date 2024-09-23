@@ -9,6 +9,7 @@ const EditarCita = () => {
   return (
     <>
       <Navbar />
+      <div className="background">
       <div className="container-editar-cita">
         {/* Imagen a la izquierda */}
         <div className="form-image">
@@ -64,6 +65,7 @@ const EditarCita = () => {
             </div>
           </form>
         </div>
+      </div>
       </div>
     </>
   );

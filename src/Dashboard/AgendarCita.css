@@ -1,3 +1,26 @@
+.background {
+  position: relative;
+  min-height: 100vh; /* Asegura que cubra toda la pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Desactiva el scroll en toda la página */
+  
+}
+
+.background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../assets/backgroundCalendario.jpeg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.77;
+  z-index: -1;
+}
 /* Contenedor principal del formulario */
 .container {
     width: 60%;
@@ -31,6 +54,11 @@
     width: 100%; /* Aumenta el tamaño de la imagen */
     border-radius: 15px;
   }
+  .reminder {
+    color: red;
+    margin-top: 10px; /* Opcional: agrega un margen para separación */
+  }
+  
   
   
   /* Sección del formulario */

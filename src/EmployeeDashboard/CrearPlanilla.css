@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: flex-start;
     margin-top: 2rem;
+    background-color: rgba(255, 245, 221, 0.77);
   }
   
   /* Contenedor de la imagen */
@@ -33,7 +34,7 @@
   .form-container {
     flex: 2;
     max-width: 600px;
-    background-color: #FFF5DD;
+    background-color: rgb(255, 255, 255);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
