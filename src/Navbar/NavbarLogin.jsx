@@ -1,6 +1,6 @@
 import React from "react";
-import logo from "../assets/huellitas.png"; // Logo de la veterinaria
-import "./Navbar.css"; // Importa tu CSS para la barra de navegación
+import logo from "../assets/huellitas.png"; 
+import "./Navbar.css"; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Navbar = () => {

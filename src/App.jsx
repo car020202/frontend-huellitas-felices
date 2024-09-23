@@ -29,10 +29,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Ruta para Login */}
+       
         <Route path="/login" element={<Login />} />
 
-        {/* Rutas protegidas para el usuario */}
+        
         <Route
           path="/dashboard"
           element={
@@ -82,7 +82,7 @@ function App() {
           }
         />
 
-        {/* Rutas protegidas para contador y empleado */}
+       
         <Route
           path="/employee"
           element={
@@ -124,7 +124,7 @@ function App() {
           }
         />
 
-        {/* Rutas protegidas para citas y calendarios */}
+       
         <Route
           path="/citas/formulario"
           element={
@@ -150,7 +150,7 @@ function App() {
           }
         />
 
-        {/* Rutas protegidas para el admin */}
+       
         <Route
       path="/admin"
       element={
@@ -159,27 +159,27 @@ function App() {
         </ProtectedRoute>
       }
     />
-    {/* Rutas protegidas para el usuario */}
+   
     <Route
       path="/dashboard"
       element={
-        <ProtectedRoute roles={["usuario"]}>  {/* Asegúrate que solo usuarios tengan acceso */}
+        <ProtectedRoute roles={["usuario"]}>
           <Dashboard />
         </ProtectedRoute>
       }
     />
-    {/* Rutas protegidas para contador y empleado */}
+   
     <Route
       path="/employee"
       element={
-        <ProtectedRoute roles={["contador", "empleado"]}>  {/* Asegúrate de incluir los roles permitidos */}
+        <ProtectedRoute roles={["contador", "empleado"]}>  
           <EmployeeDashboard />
         </ProtectedRoute>
       }
     />
 
 
-        {/* Ruta por defecto */}
+       
         <Route path="/" element={<Login />} />
       </Routes>
     </Router>
