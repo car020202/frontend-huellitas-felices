@@ -1,0 +1,256 @@
+/* Ajustes generales para asegurar que el ancho y el padding respeten los límites del contenedor */
+* {
+  box-sizing: border-box;
+}
+/* Contenedor general de la página */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('../assets/backgroundCalendario.jpeg'); /* Agrega tu imagen de fondo aquí */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Fija el fondo para que no se desplace al hacer scroll */
+}
+
+/* Contenedor del calendario */
+.containerCalendario {
+  width: 80%; /* Ajusta el ancho del contenedor */
+  margin: 50px auto;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.85); /* Fondo blanco semi-transparente */
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave para hacer resaltar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Título del calendario */
+.containerCalendario h1 {
+  font-size: 28px; /* Aumenta el tamaño del título */
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Contenedor de la selección del calendario */
+.calendar-container {
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco más opaco para visibilidad */
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  text-align: center; /* Centra el texto y el contenido */
+}
+
+.calendar-container h2 {
+  font-size: 20px; /* Aumenta el tamaño del subtítulo */
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.calendar-container p {
+  font-size: 16px; /* Mejora la legibilidad del texto */
+  color: #555;
+}
+
+
+.react-calendar {
+  width: 100% !important; /* Asegura que el calendario ocupe el 100% del ancho del contenedor */
+  max-width: 100%; /* Evita que el calendario exceda el ancho */
+  display: block; /* Asegura que el calendario sea un elemento de bloque */
+}
+
+/* Mejora de visibilidad en el calendario */
+.react-calendar__tile {
+  color: #000; /* Color del texto de las fechas */
+  background: #fff; /* Fondo blanco para todas las fechas */
+  border: 1px solid #ddd; /* Bordes suaves */
+  border-radius: 8px;
+  font-size: 16px; /* Aumenta el tamaño de las fechas */
+}
+
+.react-calendar__tile--active {
+  background-color: #007bff !important; /* Color azul para la fecha seleccionada */
+  color: #fff !important;
+}
+
+.react-calendar__tile--now {
+  background-color: #28a745 !important; /* Color amarillo para la fecha actual */
+  color: #fff !important;
+}
+.react-calendar__navigation {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px; /* Añade espacio debajo del mes */
+}
+
+.react-calendar__navigation__label {
+  font-size: 18px; /* Ajusta el tamaño del texto del mes */
+  font-weight: bold;
+  color: #333;
+}
+
+.react-calendar__navigation__arrow {
+  font-size: 16px; /* Ajusta el tamaño de las flechas */
+  color: #333;
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+  .containerCalendario {
+      width: 95%; /* Aumenta el ancho en pantallas pequeñas */
+      padding: 20px;
+  }
+
+  .calendar-container {
+      width: 100%;
+  }
+
+  .containerCalendario h1 {
+      font-size: 24px; /* Ajusta el tamaño del título en pantallas pequeñas */
+  }
+
+  .calendar-container h2 {
+      font-size: 18px; /* Ajusta el tamaño del subtítulo en pantallas pequeñas */
+  }
+}
+
+
+.container {
+  width: 90%; /* Ancho un poco mayor */
+  margin: 50px auto;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+  background-color: rgba(255, 255, 255, 0.77); /* Fondo semi-transparente para ver la imagen de fondo */
+  padding: 40px; /* Aumenta el padding */
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Título general */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Sección de la lista de citas */
+/* Contenedor de la lista de citas */
+.lista-citas {
+  background-color: #fef6e4;
+  padding: 20px; /* Ajusta el padding para evitar que la tabla se salga */
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+  width: 100%;
+  max-width: 1200px; /* Asegura que el contenedor no sea demasiado ancho */
+  margin: 0 auto;
+  overflow-x: auto; /* Agrega scroll horizontal si es necesario */
+}
+
+/* Tabla de citas */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-size: 16px; /* Aumenta el tamaño de la fuente */
+  
+}
+
+.table th, .table td {
+  padding: 14px; /* Aumenta el padding */
+  border: 1px solid #ddd;
+  text-align: left;
+  font-size: 16px; /* Aumenta el tamaño de la fuente */
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+
+}
+/* Responsivo */
+@media (max-width: 768px) {
+  .container {
+    width: 95%; /* Ajusta el ancho del contenedor */
+  }
+
+  .lista-citas {
+    max-width: 100%; /* Asegura que el contenedor no se salga del ancho disponible */
+  }
+
+  .table th, .table td {
+    font-size: 14px; /* Ajusta el tamaño de la fuente en pantallas más pequeñas */
+    padding: 10px;
+  }
+
+  .table {
+    display: block; /* Hace que la tabla sea scrollable horizontalmente en pantallas pequeñas */
+    overflow-x: auto;
+  }
+}
+
+.table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Botones de acciones */
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-edit, .btn-cancel {
+  padding: 10px 20px; /* Aumenta el tamaño de los botones */
+  font-size: 16px; /* Aumenta el tamaño del texto */
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+}
+
+.btn-fina {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-edit {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-edit:hover {
+  background-color: #0056b3;
+}
+
+.btn-cancel {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-cancel:hover {
+  background-color: #c82333;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+  
+  .lista-citas {
+    max-width: 100%; /* Ocupa todo el ancho en pantallas pequeñas */
+  }
+  
+  .table th, .table td {
+    font-size: 14px; /* Ajusta el tamaño de la fuente en pantallas más pequeñas */
+    padding: 10px;
+  }
+}

@@ -1,0 +1,372 @@
+/* Estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Banner */
+.banner {
+  padding: 7rem 0;
+  background: linear-gradient(135deg, #E5F3FF 50%, #FFF5DD 50%);
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  max-height: 650px;
+}
+
+.banner-container {
+  padding-left: 25rem;
+  padding-right: 25rem;
+}
+
+/* Imagen del perro */
+.dog-image {
+  max-width: 300px;
+  max-height: 400px;
+  position: relative;
+  margin-top: 0;
+  z-index: 1;
+}
+
+/* Formas de fondo */
+.background-shapes {
+  position: absolute;
+  top: 100px;
+  left: -40px;
+  min-width: 350px;
+  min-height: 450px;
+  z-index: -1;
+}
+
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: space-between;
+  max-width: 1900px;
+}
+
+.card {
+  width: 30%;
+  min-width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+.cards .card:nth-child(1) {
+  background-color: #E5F3FF; /* Color dorado para la primera card */
+}
+.cards .card:nth-child(2) {
+  background-color: #FFF5DD; /* Color verde claro para la segunda card */
+}
+.cards .card:nth-child(3) {
+  background-color: #E5F3FF; /* Color azul cielo para la tercera card */
+}
+.cards .card:nth-child(4) {
+  background-color: #E5F3FF; /* Color azul cielo para la tercera card */
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.card-text {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.card-text h3 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.card-text p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Ajustes para pantallas grandes */
+@media screen and (min-width: 1200px) {
+  .card {
+    width: 25%;
+    height: 350px;
+  }
+
+  .card img {
+    height: 200px;
+  }
+
+  .card-text h3 {
+    font-size: 1.75rem;
+  }
+
+  .card-text p {
+    font-size: 1.1rem;
+  }
+}
+
+/* Ajustes para pantallas medianas */
+@media screen and (max-width: 968px) {
+  .card {
+    width: 90%;
+    height: 250px;
+  }
+
+  .card img {
+    width: 80%;
+    height: auto;
+  }
+
+  .card-text h3 {
+    font-size: 1rem;
+  }
+
+  .card-text p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Ajustes para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+  .cards {
+    display: block; /* Cambiamos de flexbox a block */
+  }
+
+  .card {
+    width: 100%; /* Hacemos que cada card ocupe todo el ancho */
+    max-height: 550px;
+  }
+
+  .card img {
+    width: 100%;
+  }
+
+  .card-text h3 {
+    font-size: 0.9rem;
+  }
+
+  .card-text p {
+    font-size: 0.8rem;
+  }
+}
+
+
+
+
+/* Sección de tratamientos */
+.treatments-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem 0;
+  background-color: #E5F3FF;
+  flex-wrap: wrap;
+}
+
+.treatments-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+
+.treatments-image img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.treatments-text {
+  text-align: left;
+}
+
+.treatments-text h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.treatments-text p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.treatment-go-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #FFEBCD;
+  color: black;
+  text-decoration: none;
+  border: 1px solid black;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  
+}
+
+.treatment-go-button:hover {
+  background-color: #FFD700; /* Cambia el color al pasar el ratón */
+}
+
+
+
+/* Sección de contacto */
+.contact-section {
+  background-color: #ffffff;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background-color: #FDF0DC;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 1200px;
+  flex-wrap: wrap;
+}
+
+.contact-details {
+  display: flex;
+  justify-content: space-around;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+
+.contact-icon img {
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+}
+
+.contact-info p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.contact-image img {
+  width: 200px;
+  height: auto;
+}
+
+/* Media Queries - Para pantallas medianas y pequeñas */
+
+/* Para pantallas medianas (1024px o menos) */
+@media (max-width: 1024px) {
+  .cards {
+    flex-direction: row; /* Mantén las tarjetas en fila en tablets */
+    justify-content: space-around;
+  }
+
+  .card {
+    flex-basis: calc(50% - 20px); /* Dos tarjetas por fila en pantallas medianas */
+  }
+
+  .dog-image {
+    max-width: 250px;
+    max-height: 350px;
+  }
+
+  .background-shapes {
+    top: 50px;
+    min-width: 250px;
+    min-height: 300px;
+  }
+
+  .treatments-section,
+  .contact-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+  }
+
+  .treatments-content,
+  .contact-container {
+    padding: 1rem;
+    flex-direction: column;
+  }
+}
+
+/* Para pantallas pequeñas (768px o menos) */
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column; /* Apila las tarjetas verticalmente en pantallas pequeñas */
+    gap: 20px;
+  }
+
+  .card {
+    flex-basis: 100%; /* Cada tarjeta ocupa el 100% del ancho en pantallas pequeñas */
+    margin-bottom: 1rem;
+  }
+
+  .card img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .dog-image {
+    max-width: 200px;
+    max-height: 300px;
+  }
+
+  .background-shapes {
+    top: 30px;
+    min-width: 200px;
+    min-height: 250px;
+  }
+
+  .treatments-section,
+  .contact-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+  }
+
+  .treatments-content,
+  .contact-container {
+    padding: 1rem;
+    flex-direction: column;
+  }
+}

@@ -12,11 +12,11 @@ const VistaCalendarioCitas = () => {
       <Navbar />
 
       {/* Contenedor para el calendario */}
-      <div className="container">
+      <div className="containerCalendario">
         <h1>Calendario de Citas</h1>
         <div className="calendar-container">
           <h2>Seleccionar Una Fecha</h2>
-          <Calendar onChange={setValue} value={value} />
+          <Calendar onChange={setValue} value={value} showNavigation={true} />
           <p>Fecha seleccionada: {value.toDateString()}</p>
         </div>
       </div>
@@ -30,18 +30,24 @@ const VistaCalendarioCitas = () => {
               <tr>
                 <th>Fecha</th>
                 <th>Hora</th>
+                <th>Cliente</th>
                 <th>Paciente</th>
                 <th>Doctor</th>
+                <th>Estado</th>
                 <th>Acciones</th>
+                
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>2024-09-20</td>
                 <td>10:00 AM</td>
-                <td>Juan Pérez</td>
+                <td>Migue</td>
+                <td>barra</td>
                 <td>Dr. María Gómez</td>
+                <td>Pendiente</td>
                 <td className="actions">
+                  <button className="btn-fina">Finalizar</button>
                   <button className="btn-edit">Editar</button>
                   <button className="btn-cancel">Cancelar</button>
                 </td>
@@ -49,9 +55,12 @@ const VistaCalendarioCitas = () => {
               <tr>
                 <td>2024-09-21</td>
                 <td>11:00 AM</td>
-                <td>Ana López</td>
+                <td>Kruma</td>
+                <td>chispitas</td>
                 <td>Dr. Juan González</td>
+                <td>Confirmado</td>
                 <td className="actions">
+                  <button className="btn-fina">Finalizar</button>
                   <button className="btn-edit">Editar</button>
                   <button className="btn-cancel">Cancelar</button>
                 </td>

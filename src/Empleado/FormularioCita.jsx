@@ -1,7 +1,7 @@
 import React from "react";
 import "./FormularioCita.css";
 import Navbar from "../Navbar/NavbarLogiado";
-import imagenCita from "../assets/planilla2.png"; // Asegúrate de importar la imagen correcta
+import imagenCita from "../assets/traetmeantsf.png"; // Asegúrate de importar la imagen correcta
 
 const FormularioCita = () => {
   return (
@@ -14,8 +14,17 @@ const FormularioCita = () => {
         <div className="form-section">
           <h1>Crear Cita</h1>
           <form className="form">
+            <label htmlFor="cliente">Cliente:</label>
+            <select id="cliente" name="cliente" required>
+              <option value="cliente">Kruma</option>
+              <option value="cliente">Migue</option>
+            </select>
+
             <label htmlFor="paciente">Paciente:</label>
-            <input type="text" id="paciente" name="paciente" required />
+            <select id="paciente" name="paciente" required>
+              <option value="paciente">barra</option>
+              <option value="paciente">chispitas</option>
+            </select>
 
             <label htmlFor="doctor">Doctor:</label>
             <select id="doctor" name="doctor" required>
@@ -41,6 +50,8 @@ const FormularioCita = () => {
           </form>
         </div>
       </div>
+
+      
     </>
   );
 };

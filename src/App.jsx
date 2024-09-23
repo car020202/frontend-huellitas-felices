@@ -3,15 +3,25 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./Login/Login";
 import Dashboard from "./Dashboard/Dashboard";
 import EmployeeDashboard from "./EmployeeDashboard/EmployeeDashboard";
+import EmpleadoDashboard from "./Empleado/EmpleadoDashboard";
 import PlanillaView from "./EmployeeDashboard/PlanillaView";
 import CrearPlanilla from "./EmployeeDashboard/CrearPlanilla";
-import FormularioCita from "./Citas/FormularioCita";
-import VistaCalendario from "./Citas/VistaClendario";
-import EditarCita from "./Citas/EditarCitas";
+/*nuevas*/
+import FormularioCita from "./Empleado/FormularioCita";
+import VistaCalendario from "./Empleado/VistaClendario";
+import EditarCita from "./Empleado/EditarCitas";
+
 import CitasCliente from "./Dashboard/CitasCliente";
 import TratamientosCliente from "./Dashboard/TratamientosCliente";
 import ProductosCliente from "./Dashboard/ProductosCliente";
 import ProtectedRoute from "./ProtectedRoute"; 
+/*nuevo*/
+import AdminDashboard from "./Admin/AdminDashboard";
+import AgregarProductos from "./Admin/AgregarProductos";
+import AgregarProductoDetalle from "./Admin/AgregarPrdoctoDetalle";
+import CrearUsuario from "./Admin/CrearUsuario";
+import AgregarCliente from "./Empleado/AgregarCliente";
+import AgregarMascota from "./Empleado/AgregarMascota";
 
 function App() {
   return (
@@ -112,6 +122,7 @@ function App() {
         <Route path="/" element={<Login />} />
       </Routes>
     </Router>
+    
   );
 }
 
