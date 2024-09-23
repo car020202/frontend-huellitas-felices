@@ -1,15 +1,15 @@
 import React from "react";
-import Navbar from "../Navbar/NavbarLogiado";
+import Navbar from "../Navbar/NavbarEmployee";
 import dogImage from "../assets/perritohome.png"; // Imagen del perro en el banner
 import backgroundShapes from "../assets/fondo.png"; // Imagen de formas detrás del perro
 
 // Aquí importamos las imágenes .de las cards
 import datingImage from "../assets/planilla.jpg";
-import consultationsImage from "../assets/perro2.png";
-import productsImage from "../assets/gato.png";
+import consultationsImage from "../assets/crearplanilla.webp";
+
 
 // Aquí importamos las imágenes de la sección
-import TreatmentsImage from "../assets/traetmeantsf.png";
+
 
 // Importamos las imágenes de los íconos para la sección de Contacto
 import locationIcon from "../assets/ubicacion_icon.svg";

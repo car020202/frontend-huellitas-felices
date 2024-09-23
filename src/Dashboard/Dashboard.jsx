@@ -8,6 +8,7 @@ import backgroundShapes from "../assets/fondo.png"; // Imagen de formas detrás 
 import datingImage from "../assets/hola1.jpg";
 import consultationsImage from "../assets/perro2.png";
 import productsImage from "../assets/gato.png";
+import crearcita from "../assets/crearcita.webp";
 
 // Aquí importamos las imágenes de la sección
 import TreatmentsImage from "../assets/traetmeantsf.png";
@@ -59,6 +60,14 @@ function Dashboard() {
           <div className="card-text">
             <h3>Products</h3>
             <p>Products for the care and maintenance of your friend.</p>
+          </div>
+        </div>
+
+        <div className="card">
+          <img src={crearcita} alt="crearcita" />
+          <div className="card-text">
+            <h3>Agedar cita</h3>
+            <p></p>
           </div>
         </div>
       </div>

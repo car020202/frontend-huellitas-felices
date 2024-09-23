@@ -68,7 +68,7 @@ body {
   
   border-radius: 10px;
   
-  top: -150px; /* Sube la imagen aún más hacia arriba para compensar el aumento de tamaño */
+  
   transform: translateY(-40px); /* Ajusta la posición para que se vea correctamente */
 }
 

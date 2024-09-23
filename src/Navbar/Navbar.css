@@ -1,8 +1,22 @@
+/* Navbar.css */
+.navbar-toggler.custom-toggler {
+  padding: 0.1rem 0.25rem; /* Reducimos aún más el padding */
+  font-size: 0.75rem; /* Reducimos el tamaño de la fuente */
+  background-color: #FFF5DD; /* Color personalizado */
+  border-radius: 5px; /* Bordes redondeados */
+  width: 50px; /* Ajustamos el ancho del botón */
+  height: 30px; /* Ajustamos la altura del botón */
+  position: absolute; /* Lo hacemos absoluto para posicionarlo */
+  top: 25px; /* Ajusta la distancia desde el borde superior */
+  right: 25px; /* Ajusta la distancia desde el borde derecho */
+}
+
+.navbar-toggler.custom-toggler:hover {
+  background-color: #FFF5DD; /* Cambia el color al hacer hover */
+}
+
 .navbar-brand img {
-    margin: 0; /* Elimina cualquier margen alrededor de la imagen del logo */
-  }
-  
-  .navbar-nav .nav-item {
-    margin: 0; /* Elimina márgenes adicionales entre los enlaces */
-  }
-  
+  width: 30px; /* Ajustar el tamaño del logo */
+  height: 30px;
+}
+

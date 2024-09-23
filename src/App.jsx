@@ -1,6 +1,6 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./Login/Login";
+/*import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./Login/Login";*/
 import Dashboard from "./Dashboard/Dashboard";
 import EmployeeDashboard from "./EmployeeDashboard/EmployeeDashboard";
 import EmpleadoDashboard from "./Empleado/EmpleadoDashboard";
@@ -22,10 +22,12 @@ import AgregarProductoDetalle from "./Admin/AgregarPrdoctoDetalle";
 import CrearUsuario from "./Admin/CrearUsuario";
 import AgregarCliente from "./Empleado/AgregarCliente";
 import AgregarMascota from "./Empleado/AgregarMascota";
+import ProductoDetalle from "./Dashboard/ProductoDetalle";
+import AgendarCita from "./Dashboard/AgendarCita";
 
 function App() {
   return (
-    <Router>
+   /* <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
 
@@ -121,8 +123,8 @@ function App() {
 
         <Route path="/" element={<Login />} />
       </Routes>
-    </Router>
-    
+    </Router>*/
+    <AgendarCita />
   );
 }
 

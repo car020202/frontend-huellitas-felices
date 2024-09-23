@@ -1,6 +1,6 @@
 import React from 'react';
 //import './AgregarCliente.css'; // Importa los estilos de CSS
-import Navbar from "../Navbar/NavbarLogiado";
+import Navbar from "../Navbar/NavbarEmpleado";
 
 const AgregarCliente = () => {
   return (

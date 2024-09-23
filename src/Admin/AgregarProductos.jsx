@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './AgregarProductos.css'; // Estilos opcionales
-import Navbar from "../Navbar/NavbarLogiado";
+import Navbar from "../Navbar/NavbarAdmin";
 
 // Imágenes para los productos
 import producto1Img from '../assets/producto1.webp';

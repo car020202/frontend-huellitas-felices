@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import Navbar from "../Navbar/NavbarLogiado";
+import Navbar from "../Navbar/NavbarEmpleado";
 import "./VistaClendario.css"; // Asegúrate de importar el archivo CSS
 
 const VistaCalendarioCitas = () => {

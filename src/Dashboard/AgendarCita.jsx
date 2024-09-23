@@ -1,9 +1,9 @@
 import React from "react";
-import "./FormularioCita.css";
-import Navbar from "../Navbar/NavbarEmpleado";
+import "./AgendarCita.css";
+import Navbar from "../Navbar/NavbarLogiado";
 import imagenCita from "../assets/traetmeantsf.png"; // Asegúrate de importar la imagen correcta
 
-const FormularioCita = () => {
+const AgendarCita = () => {
   return (
     <>
       <Navbar />
@@ -12,7 +12,7 @@ const FormularioCita = () => {
           <img src={imagenCita} alt="Imagen cita" />
         </div>
         <div className="form-section">
-          <h1>Crear Cita</h1>
+          <h1>Agendar Cita</h1>
           <form className="form">
             <label htmlFor="cliente">Cliente:</label>
             <select id="cliente" name="cliente" required>
@@ -40,6 +40,9 @@ const FormularioCita = () => {
 
             {/* Contenedor para los botones */}
             <div className="button-container">
+            <button type="button" className="btn-cancel">
+                Pago en efectivo
+              </button>
               <button type="submit" className="btn-submit">
                 Guardar Cita
               </button>
@@ -56,4 +59,4 @@ const FormularioCita = () => {
   );
 };
 
-export default FormularioCita;
+export default AgendarCita;

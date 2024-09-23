@@ -1,6 +1,6 @@
 import React from "react";
 import './AgregarProductoDetalle.css'; // Estilos opcionales
-import Navbar from "../Navbar/NavbarLogiado";
+import Navbar from "../Navbar/NavbarAdmin";
 
 const AgregarProductoDetalle = () => {
   return (

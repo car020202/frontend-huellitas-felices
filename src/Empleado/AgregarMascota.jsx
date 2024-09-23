@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../Navbar/NavbarLogiado";
+import Navbar from "../Navbar/NavbarEmpleado";
 //import './AgregarMascota.css'; // Importa los estilos de CSS
 
 const AgregarMascota = () => {
