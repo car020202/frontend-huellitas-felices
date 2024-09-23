@@ -12,25 +12,26 @@ const Login = () => {
   const navigate = useNavigate(); 
 
   
-  const mapRoleToName = (roleId) => {
-    switch (roleId) {
-      case 1:
+  const mapRoleToName = (role) => {
+    switch (role) {
+      case "admin":
         return "admin";
-      case 2:
+      case "empleado":
         return "empleado";
-      case 3:
+      case "usuario":
         return "usuario";
-      case 4:
+      case "contador":
         return "contador";
       default:
         return "usuario";
     }
   };
 
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-     
+      
       const response = await axios.post('http://localhost:3000/usuario/login', {
         correo,
         contraseña
@@ -40,14 +41,17 @@ const Login = () => {
       const token = response.data.token;
       localStorage.setItem('token', token);
 
-   
+     
       const payload = JSON.parse(atob(token.split('.')[1]));
-      const rol = mapRoleToName(payload.rol);  
+
+      console.log('Token Payload:', payload);  
+
+      const rol = mapRoleToName(payload.rol); 
 
      
       switch (rol) {
         case 'admin':
-          navigate('/admin/dashboard');
+          navigate('/admin');  
           break;
         case 'empleado':
           navigate('/empleado/dashboard');
@@ -59,10 +63,11 @@ const Login = () => {
           navigate('/dashboard');
           break;
         default:
-          navigate('/login'); 
+          navigate('/login');
       }
-
+      
     } catch (error) {
+      
       setError('Credenciales incorrectas. Inténtalo de nuevo.');
     }
   };

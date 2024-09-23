@@ -15,7 +15,7 @@ const Navbar = () => {
     <header>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid d-flex justify-content-between align-items-center">
-          {/* Agregamos el logo dentro del enlace de la marca */}
+       
           <a className="navbar-brand" href="#">
             <img src={logo} alt="Veterinaria Logo" style={{ width: '40px', height: '40px' }} />
           </a>

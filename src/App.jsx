@@ -6,7 +6,7 @@ import EmployeeDashboard from "./EmployeeDashboard/EmployeeDashboard";
 import EmpleadoDashboard from "./Empleado/EmpleadoDashboard";
 import PlanillaView from "./EmployeeDashboard/PlanillaView";
 import CrearPlanilla from "./EmployeeDashboard/CrearPlanilla";
-/*nuevas*/
+
 import FormularioCita from "./Empleado/FormularioCita";
 import VistaCalendario from "./Empleado/VistaClendario";
 import EditarCita from "./Empleado/EditarCitas";
@@ -14,8 +14,8 @@ import EditarCita from "./Empleado/EditarCitas";
 import CitasCliente from "./Dashboard/CitasCliente";
 import TratamientosCliente from "./Dashboard/TratamientosCliente";
 import ProductosCliente from "./Dashboard/ProductosCliente";
-import ProtectedRoute from "./ProtectedRoute"; 
-/*nuevo*/
+import ProtectedRoute from "./ProtectedRoute";
+
 import AdminDashboard from "./Admin/AdminDashboard";
 import AgregarProductos from "./Admin/AgregarProductos";
 import AgregarProductoDetalle from "./Admin/AgregarPrdoctoDetalle";
@@ -27,11 +27,12 @@ import AgendarCita from "./Dashboard/AgendarCita";
 
 function App() {
   return (
-   <Router>
+    <Router>
       <Routes>
+        {/* Ruta para Login */}
         <Route path="/login" element={<Login />} />
 
-       
+        {/* Rutas protegidas para el usuario */}
         <Route
           path="/dashboard"
           element={
@@ -40,8 +41,48 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/cliente/citas"
+          element={
+            <ProtectedRoute roles={["usuario"]}>
+              <CitasCliente />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/cliente/tratamientos"
+          element={
+            <ProtectedRoute roles={["usuario"]}>
+              <TratamientosCliente />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/cliente/productos"
+          element={
+            <ProtectedRoute roles={["usuario"]}>
+              <ProductosCliente />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/cliente/producto-detalle/:id"
+          element={
+            <ProtectedRoute roles={["usuario"]}>
+              <ProductoDetalle />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/cliente/agendar-cita"
+          element={
+            <ProtectedRoute roles={["usuario"]}>
+              <AgendarCita />
+            </ProtectedRoute>
+          }
+        />
 
-    
+        {/* Rutas protegidas para contador y empleado */}
         <Route
           path="/employee"
           element={
@@ -50,8 +91,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-
-     
         <Route
           path="/employee/planillas"
           element={
@@ -68,8 +107,24 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/employee/agregar-cliente"
+          element={
+            <ProtectedRoute roles={["empleado"]}>
+              <AgregarCliente />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/employee/agregar-mascota"
+          element={
+            <ProtectedRoute roles={["empleado"]}>
+              <AgregarMascota />
+            </ProtectedRoute>
+          }
+        />
 
-        
+        {/* Rutas protegidas para citas y calendarios */}
         <Route
           path="/citas/formulario"
           element={
@@ -95,36 +150,39 @@ function App() {
           }
         />
 
-        
+        {/* Rutas protegidas para el admin */}
         <Route
-          path="/cliente/citas"
-          element={
-            <ProtectedRoute roles={["usuario"]}>
-              <CitasCliente />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/cliente/tratamientos"
-          element={
-            <ProtectedRoute roles={["usuario"]}>
-              <TratamientosCliente />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/cliente/productos"
-          element={
-            <ProtectedRoute roles={["usuario"]}>
-              <ProductosCliente />
-            </ProtectedRoute>
-          }
-        />
+      path="/admin"
+      element={
+        <ProtectedRoute roles={["admin"]}> 
+          <AdminDashboard />
+        </ProtectedRoute>
+      }
+    />
+    {/* Rutas protegidas para el usuario */}
+    <Route
+      path="/dashboard"
+      element={
+        <ProtectedRoute roles={["usuario"]}>  {/* Asegúrate que solo usuarios tengan acceso */}
+          <Dashboard />
+        </ProtectedRoute>
+      }
+    />
+    {/* Rutas protegidas para contador y empleado */}
+    <Route
+      path="/employee"
+      element={
+        <ProtectedRoute roles={["contador", "empleado"]}>  {/* Asegúrate de incluir los roles permitidos */}
+          <EmployeeDashboard />
+        </ProtectedRoute>
+      }
+    />
 
+
+        {/* Ruta por defecto */}
         <Route path="/" element={<Login />} />
       </Routes>
     </Router>
-    
   );
 }
 
