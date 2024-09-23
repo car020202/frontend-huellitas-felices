@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../Navbar/Navbar";
+import Navbar from "../Navbar/NavbarLogiado";
 import "./Dashboard.css";
 import dogImage from "../assets/perritohome.png"; // Imagen del perro en el banner
 import backgroundShapes from "../assets/fondo.png"; // Imagen de formas detrás del perro

@@ -1,13 +1,76 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";  
 import "./Login.css";
-import dogImage from "../assets/perro.png"; // Imagen del perro
+import dogImage from "../assets/perro.png"; 
 import Navbar from "../Navbar/Navbar";
+import { useNavigate } from "react-router-dom";  
 
 const Login = () => {
+  const [correo, setCorreo] = useState('');  
+  const [contraseña, setContraseña] = useState(''); 
+  const [error, setError] = useState('');  
+  const navigate = useNavigate(); 
+
+  
+  const mapRoleToName = (roleId) => {
+    switch (roleId) {
+      case 1:
+        return "admin";
+      case 2:
+        return "empleado";
+      case 3:
+        return "usuario";
+      case 4:
+        return "contador";
+      default:
+        return "usuario";
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+     
+      const response = await axios.post('http://localhost:3000/usuario/login', {
+        correo,
+        contraseña
+      });
+
+     
+      const token = response.data.token;
+      localStorage.setItem('token', token);
+
+   
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      const rol = mapRoleToName(payload.rol);  
+
+     
+      switch (rol) {
+        case 'admin':
+          navigate('/admin/dashboard');
+          break;
+        case 'empleado':
+          navigate('/empleado/dashboard');
+          break;
+        case 'contador':
+          navigate('/employee');
+          break;
+        case 'usuario':
+          navigate('/dashboard');
+          break;
+        default:
+          navigate('/login'); 
+      }
+
+    } catch (error) {
+      setError('Credenciales incorrectas. Inténtalo de nuevo.');
+    }
+  };
+
   return (
     <>
       <header>
-        <Navbar/>
+        <Navbar />
       </header>
 
       <div className="background">
@@ -18,30 +81,37 @@ const Login = () => {
             </div>
             <div className="login-right">
               <div className="login-box">
-                <h2>Login</h2>
-                <form>
+                <h2>Iniciar Sesión</h2>
+                <form onSubmit={handleSubmit}>
                   <div className="input-group">
-                    <label htmlFor="username">
-                      <i className="fa fa-user"></i> Username or Email
+                    <label htmlFor="correo">
+                      <i className="fa fa-user"></i> Correo
                     </label>
                     <input
-                      type="text"
-                      id="username"
-                      placeholder="Username or Email"
+                      type="email"
+                      id="correo"
+                      placeholder="Ingresa tu correo"
+                      value={correo}
+                      onChange={(e) => setCorreo(e.target.value)}
+                      required
                     />
                   </div>
                   <div className="input-group">
-                    <label htmlFor="password">
-                      <i className="fa fa-lock"></i> Enter your Password
+                    <label htmlFor="contraseña">
+                      <i className="fa fa-lock"></i> Contraseña
                     </label>
                     <input
                       type="password"
-                      id="password"
-                      placeholder="Enter Password"
+                      id="contraseña"
+                      placeholder="Ingresa tu contraseña"
+                      value={contraseña}
+                      onChange={(e) => setContraseña(e.target.value)}
+                      required
                     />
                   </div>
+                  {error && <p className="error">{error}</p>}
                   <button type="submit" className="login-button">
-                    Login
+                    Iniciar Sesión
                   </button>
                 </form>
               </div>
