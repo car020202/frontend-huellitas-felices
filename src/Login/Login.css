@@ -41,7 +41,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 90%;
-  max-width: 1200px;
+  width: 1500px;
   max-height: 700px;
   margin: auto; /* Centra la capa */
 }

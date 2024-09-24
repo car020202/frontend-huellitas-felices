@@ -28,7 +28,7 @@ import Factura from "./Dashboard/Factura";
 
 function App() {
   return (
-    /*<Router>
+   <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
 
@@ -174,9 +174,8 @@ function App() {
 
         <Route path="/" element={<Login />} />
       </Routes>
-    </Router>*/
-
-    <AgregarCliente/>
+    </Router>
+    
   );
 }
 

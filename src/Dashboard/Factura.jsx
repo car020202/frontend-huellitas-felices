@@ -13,7 +13,7 @@ function Factura() {
       <div className="background">
         {" "}
         {/* Fondo principal */}
-        <div className="overlay">
+        <div className="overlay-factura">
           {" "}
           {/* Overlay transparente */}
             <h2 className="text-center mb-4">Carrito de Compras</h2>

@@ -67,7 +67,7 @@
   }
   
   /* Estilos para el overlay */
-  .overlay {
+  .overlay-factura {
     background-color: rgba(230, 243, 255, 0.77);
     padding: 1rem;
     border-radius: 20px;

@@ -1,0 +1,56 @@
+/* Estilos para el contenedor del formulario */
+.form-container {
+    width: 1200px;
+    height: 600px !important; /* Esto forzará la altura */
+    margin: 150px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+  
+  /* Grid con dos columnas: divide el contenido */
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+    gap: 20px;
+  }
+  
+  /* Cada grupo de formulario está en columna */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Input y select general */
+  input, select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+  }
+  
+  /* Botón de envío */
+  .btn-submit {
+    background-color: #043da5;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .btn-submit:hover {
+    background-color: #003483;
+  }
+  
+  /* Responsividad para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .form-grid {
+      grid-template-columns: 1fr; /* Colapsa a una columna en pantallas pequeñas */
+    }
+  }
+  
