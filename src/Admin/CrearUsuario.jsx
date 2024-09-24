@@ -107,8 +107,8 @@ const CrearUsuario = () => {
                 >
                   <option value="empleado">Empleado</option>
                   <option value="admin">Administrador</option>
-                  
                   <option value="contador">RH</option>
+                  <option value="cliente">Cliente</option>
                 </select>
               </div>
 
