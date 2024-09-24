@@ -1,11 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; // Importamos el hook useNavigate
 import Navbar from "../Navbar/NavbarEmpleado";
 import "./Dashboard.css";
 import Footer from "../Footer/Footer";
 import dogImage from "../assets/perritohome.png"; // Imagen del perro en el banner
 import backgroundShapes from "../assets/fondo.png"; // Imagen de formas detrás del perro
 
-// Aquí importamos las imágenes .de las cards
+// Aquí importamos las imágenes de las cards
 import datingImage from "../assets/calendario.webp";
 import CrearCitaImage from "../assets/crearcita.webp";
 
@@ -15,9 +16,9 @@ import emailIcon from "../assets/email_icon.svg";
 import phoneIcon from "../assets/telefono_icon.svg";
 import contactImage from "../assets/contact.png";
 
-// No necesitas la navbar aquí, ya que la usarás como un layout aparte
-
 function Dashboard() {
+  const navigate = useNavigate(); // Usamos el hook para redirigir al hacer clic en las cards
+
   return (
     <>
       <Navbar />
@@ -37,29 +38,32 @@ function Dashboard() {
       </section>
 
       <div className="cards">
-        <div className="card">
+        {/* Cada card ahora tiene un onClick para redirigir */}
+        <div className="card" onClick={() => navigate("/empleado/agregar-cliente")}>
           <img src={datingImage} alt="Crear-Cliente" />
           <div className="card-text">
-            <h3>Crear Clietes</h3>
+            <h3>Crear Clientes</h3>
             <p>Crear Clientes </p>
           </div>
         </div>
 
-        <div className="card">
+        <div className="card" onClick={() => navigate("/empleado/agregar-mascota")}>
           <img src={datingImage} alt="Agregar-Mascota" />
           <div className="card-text">
             <h3>Agregar Mascota</h3>
-            <p>Agrega Mascotas a los Clientess </p>
+            <p>Agrega Mascotas a los Clientes </p>
           </div>
         </div>
-        <div className="card">
+
+        <div className="card" onClick={() => navigate("/empleado/calendario-citas")}>
           <img src={datingImage} alt="vistaCalendario" />
           <div className="card-text">
             <h3>Ver Calendario de citas</h3>
             <p>Consulta las citas </p>
           </div>
         </div>
-        <div className="card">
+
+        <div className="card" onClick={() => navigate("/empleado/crear-cita")}>
           <img src={CrearCitaImage} alt="CrearCita" />
           <div className="card-text">
             <h3>Crear Cita</h3>
@@ -107,7 +111,7 @@ function Dashboard() {
           <img src={contactImage} alt="Dog" />
         </div>
       </section>
-      <Footer/>
+      <Footer />
     </>
   );
 }

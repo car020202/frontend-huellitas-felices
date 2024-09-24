@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./Login/Login";
 import Dashboard from "./Dashboard/Dashboard";
 import EmployeeDashboard from "./EmployeeDashboard/EmployeeDashboard"; 
-import EmpleadoDashboard from "./Empleado/EmpleadoDashboard"; // Importar el EmpleadoDashboard
+import EmpleadoDashboard from "./Empleado/EmpleadoDashboard"; 
 import PlanillaView from "./EmployeeDashboard/PlanillaView";
 import CrearPlanilla from "./EmployeeDashboard/CrearPlanilla";
 /* nuevas */
@@ -19,8 +19,8 @@ import AdminDashboard from "./Admin/AdminDashboard";
 import AgregarProductos from "./Admin/AgregarProductos";
 import AgregarProductoDetalle from "./Admin/AgregarPrdoctoDetalle";
 import CrearUsuario from "./Admin/CrearUsuario";
-import AgregarCliente from "./Empleado/AgregarCliente";
-import AgregarMascota from "./Empleado/AgregarMascota";
+import AgregarCliente from "./Empleado/AgregarCliente"; // Importar AgregarCliente
+import AgregarMascota from "./Empleado/AgregarMascota"; // Importar AgregarMascota
 import ProductoDetalle from "./Dashboard/ProductoDetalle";
 import AgendarCita from "./Dashboard/AgendarCita";
 import Factura from "./Dashboard/Factura";
@@ -51,7 +51,7 @@ function App() {
           }
         />
 
-        {/* Nueva ruta para el Dashboard del empleado (Empleado específico) */}
+        {/* Nueva ruta para el Dashboard del empleado */}
         <Route
           path="/empleado/dashboard"
           element={
@@ -61,8 +61,7 @@ function App() {
           }
         />
 
-        {/* Otras rutas... */}
-
+        {/* Rutas de planillas */}
         <Route
           path="/employee/planillas"
           element={
@@ -80,7 +79,7 @@ function App() {
           }
         />
 
-        {/* Rutas para citas y clientes */}
+        {/* Rutas para citas */}
         <Route
           path="/citas/formulario"
           element={
@@ -182,11 +181,28 @@ function App() {
           }
         />
 
+        {/* Rutas para agregar cliente y agregar mascota desde el empleado */}
+        <Route
+          path="/empleado/agregar-cliente"
+          element={
+            <ProtectedRoute roles={["empleado"]}>
+              <AgregarCliente /> 
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/empleado/agregar-mascota"
+          element={
+            <ProtectedRoute roles={["empleado"]}>
+              <AgregarMascota /> 
+            </ProtectedRoute>
+          }
+        />
+
         {/* Ruta de inicio */}
         <Route path="/" element={<Login />} />
       </Routes>
     </Router>
-
   );
 }
 
