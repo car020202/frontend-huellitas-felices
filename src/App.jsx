@@ -24,10 +24,11 @@ import AgregarCliente from "./Empleado/AgregarCliente";
 import AgregarMascota from "./Empleado/AgregarMascota";
 import ProductoDetalle from "./Dashboard/ProductoDetalle";
 import AgendarCita from "./Dashboard/AgendarCita";
+import Factura from "./Dashboard/Factura";
 
 function App() {
   return (
-    <Router>
+    /*<Router>
       <Routes>
         <Route path="/login" element={<Login />} />
 
@@ -173,9 +174,9 @@ function App() {
 
         <Route path="/" element={<Login />} />
       </Routes>
-    </Router>
+    </Router>*/
 
-    
+    <AgregarCliente/>
   );
 }
 

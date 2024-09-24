@@ -58,6 +58,15 @@ const Navbar = () => {
                 </a>
               </li>
               <li className="nav-item">
+                {/* Navlink para Ver Carrito con logo */}
+                <a className="nav-link" href="#" title="Ver Carrito">
+                  <img
+                    src="https://img.icons8.com/material-outlined/24/000000/shopping-cart.png"
+                    alt="Carrito"
+                  />
+                </a>
+              </li>
+              <li className="nav-item">
                 {/* Evento onClick para redirigir a la página de login */}
                 <a className="nav-link btn btn-outline btn-login" href="#" onClick={handleLoginClick}>
                   Cerrar Sesión

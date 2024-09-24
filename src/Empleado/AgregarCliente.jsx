@@ -1,5 +1,5 @@
 import React from 'react';
-// import './AgregarCliente.css'; // Importa los estilos de CSS
+//import './AgregarCliente.css'; // Importa los estilos de CSS
 import Navbar from "../Navbar/NavbarEmpleado";
 
 const AgregarCliente = () => {
@@ -19,6 +19,26 @@ const AgregarCliente = () => {
                   id="nombre"
                   name="nombre"
                   placeholder="Ingrese el nombre completo"
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="direccion">Direccion:</label>
+                <input
+                  type="direccion"
+                  id="direccion"
+                  name="direccion"
+                  placeholder="Ingrese la direccion"
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="telefono">Telefono:</label>
+                <input
+                  type="telefono"
+                  id="telefono"
+                  name="telefono"
+                  placeholder="Ingrese el Telefono"
                   required
                 />
               </div>
