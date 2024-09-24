@@ -1,24 +1,27 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom"; // Importa Link y useNavigate para manejar las rutas
 import logo from "../assets/huellitas.png"; // Logo de la veterinaria
 import "./Navbar.css"; // Importa tu CSS para la barra de navegación
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
-
 const Navbar = () => {
-  // Función para manejar la redirección
-  const handleLoginClick = () => {
-    window.location.href = "./Login/Login"; // Cambia la ruta según tu configuración
+  const navigate = useNavigate(); // useNavigate hook para redirigir
+
+  // Función para manejar el cierre de sesión
+  const handleLogoutClick = () => {
+    // Lógica para manejar el cierre de sesión (puedes limpiar localStorage, etc.)
+    navigate("/login"); // Redirigir al login después de cerrar sesión
   };
 
   return (
     <header>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid d-flex justify-content-between align-items-center">
-          {/* Agregamos el logo dentro del enlace de la marca */}
-          <a className="navbar-brand" href="#">
+          {/* Logo que redirige al inicio */}
+          <Link className="navbar-brand" to="/employee">
             <img src={logo} alt="Veterinaria Logo" style={{ width: '40px', height: '40px' }} />
-          </a>
+          </Link>
           <button
             className="navbar-toggler custom-toggler"
             type="button"
@@ -33,26 +36,28 @@ const Navbar = () => {
           <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                {/* Link que redirige al dashboard del empleado */}
+                <Link className="nav-link active" aria-current="page" to="/employee">
                   Inicio
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                {/* Link que redirige a la vista de planillas */}
+                <Link className="nav-link" to="/employee/planillas">
                   Ver Planilla
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                {/* Link que redirige a la creación de planilla */}
+                <Link className="nav-link" to="/employee/crear-planilla">
                   Crear Planilla
-                </a>
+                </Link>
               </li>
-              
               <li className="nav-item">
-                {/* Evento onClick para redirigir a la página de login */}
-                <a className="nav-link btn btn-outline btn-login" href="#" onClick={handleLoginClick}>
-                  Cerra Sesion
-                </a>
+                {/* Botón para cerrar sesión */}
+                <button className="nav-link btn btn-outline btn-login" onClick={handleLogoutClick}>
+                  Cerrar Sesión
+                </button>
               </li>
             </ul>
           </div>
