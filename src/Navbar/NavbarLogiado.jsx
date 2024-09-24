@@ -1,14 +1,17 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom"; // Importamos Link y useNavigate
 import logo from "../assets/huellitas.png"; // Logo de la veterinaria
 import "./Navbar.css"; // Importa tu CSS para la barra de navegación
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
-
 const Navbar = () => {
-  // Función para manejar la redirección
+  const navigate = useNavigate(); // Usamos useNavigate para redirigir a la página de login
+
+  // Función para manejar la redirección al login
   const handleLoginClick = () => {
-    window.location.href = "./Login/Login"; // Cambia la ruta según tu configuración
+    localStorage.removeItem("token"); // Limpiar token de sesión si es necesario
+    navigate("/login"); // Redirige a la página de login
   };
 
   return (
@@ -16,9 +19,9 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid d-flex justify-content-between align-items-center">
           {/* Agregamos el logo dentro del enlace de la marca */}
-          <a className="navbar-brand" href="#">
+          <Link className="navbar-brand" to="/">
             <img src={logo} alt="Veterinaria Logo" style={{ width: '40px', height: '40px' }} />
-          </a>
+          </Link>
           <button
             className="navbar-toggler custom-toggler"
             type="button"
@@ -33,43 +36,38 @@ const Navbar = () => {
           <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <Link className="nav-link active" aria-current="page" to="/dashboard">
                   Inicio
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" to="/cliente/tratamientos">
                   Tratamientos
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" to="/cliente/citas">
                   Citas
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" to="/cliente/productos">
                   Productos
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Contacto
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 {/* Navlink para Ver Carrito con logo */}
-                <a className="nav-link" href="#" title="Ver Carrito">
+                <Link className="nav-link" to="/cliente/carrito" title="Ver Carrito">
                   <img
                     src="https://img.icons8.com/material-outlined/24/000000/shopping-cart.png"
                     alt="Carrito"
                   />
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 {/* Evento onClick para redirigir a la página de login */}
                 <a className="nav-link btn btn-outline btn-login" href="#" onClick={handleLoginClick}>
-                  Cerrar Sesión
+                  Cerra Sesion
                 </a>
               </li>
             </ul>
