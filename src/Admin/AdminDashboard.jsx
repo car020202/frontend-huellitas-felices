@@ -26,7 +26,9 @@ function Dashboard() {
 
   return (
     <>
-      <Navbar />
+     <header>
+        <Navbar />
+      </header>
       <section className="banner">
         <div className="banner-content">
           <h1>has iniciado como administrador.</h1>

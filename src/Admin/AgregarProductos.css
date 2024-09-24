@@ -1,76 +1,69 @@
-/* Estilos existentes que ya funcionan bien */
+/* Productos Info Container */
 .productos-info-container {
-  position: relative;
-  padding: 20px;
+  padding: 20px 40px; /* Reducir padding superior */
+  text-align: center;
+  background: linear-gradient(135deg, #d0e9f5 50%, #FFF4e4 50%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Asegura que todo esté centrado */
 }
 
+.productos-info-container h2 {
+  margin-bottom: 20px; /* Espacio debajo del título */
+  margin-top: 0; /* Asegura que no haya margen superior */
+  font-size: 32px; /* Ajusta el tamaño del título si es necesario */
+}
+
+/* Botón de agregar producto */
 .btn-add-product {
-  position: absolute;
-  top: 50px;
-  right: 80px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
   background-color: #007bff;
   color: white;
   border: none;
   border-radius: 50%;
-  width: 65px;
-  height: 65px;
-  font-size: 24px;
+  width: 60px;
+  height: 60px;
+  font-size: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
   transition: background-color 0.3s ease;
-}
-
-.btn-ocultar-producto {
-  padding: 8px 16px;
-  font-size: 14px;
-  cursor: pointer;
-  border-radius: 5px;
-  border: none;
-  background-color: red; 
-  color: white;
-  transition: background-color 0.3s ease;
-  width: 150px; /* Ancho fijo */
-  height: 40px; /* Alto fijo */
-  text-align: center; /* Centrar el texto */
-}
-
-.btn-ocultar-producto.mostrar {
-  background-color: blue; /* Color azul cuando el botón dice 'Mostrar producto' */
 }
 
 .btn-add-product:hover {
   background-color: #0056b3;
 }
 
-.productos-info-container {
-  padding: 40px 300px; /* Espacio alrededor del contenedor */
-  text-align: center;
-  background: linear-gradient(135deg, #d0e9f5 50%, #FFF4e4 50%); /* Mismo fondo que las vistas anteriores */
-  min-height: 100vh; /* Asegura que cubra toda la pantalla */
-}
-
+/* Productos Info List */
 .productos-info-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Dos columnas para las tarjetas */
-  grid-template-rows: auto;
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas */
   gap: 20px;
   justify-content: center;
   padding: 20px;
+  width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+  max-width: 1200px; /* Limitar el ancho máximo */
 }
 
+/* Tarjetas de productos */
 .producto-info-card {
   background-color: #ffffff;
   border-radius: 12px;
-  padding: 50px; /* Aumentar el padding de la tarjeta */
+  padding: 20px;
+  width: 450px; /* Ajustar tamaño de las cards */
+  height: 500px; /* Ajustar la altura */
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: hidden; /* Asegura que el contenido no se salga */
+  justify-content: space-between;
+  overflow: hidden;
 }
 
 .producto-info-card:hover {
@@ -80,85 +73,74 @@
 /* Imágenes de los productos */
 .producto-img {
   width: 100%;
-  height: auto;
-  max-height: 250px; 
+  height: 220px;
+  object-fit: contain;
+  margin-bottom: 10px;
   border-radius: 8px;
-  object-fit: cover;
-  margin-bottom: 15px; /* Espacio debajo de la imagen */
 }
 
-/* Información dentro de las tarjetas */
+/* Información del producto */
 .producto-info {
-  text-align: left;
+  text-align: center;
 }
 
 .producto-info h3 {
-  font-size: 24px;
+  font-size: 18px;
   color: #333;
   margin-bottom: 10px;
 }
 
 .producto-info p {
-  font-size: 16px;
+  font-size: 14px;
   color: #555;
   margin-bottom: 5px;
 }
 
 .producto-info .precio {
-  font-size: 18px;
+  font-size: 16px;
   color: #000;
   margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Botón ocultar/mostrar producto */
+.btn-ocultar-producto {
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  background-color: red;
+  color: white;
+  transition: background-color 0.3s ease;
+  width: 150px;
+  height: 40px;
+  text-align: center;
+}
+
+.btn-ocultar-producto.mostrar {
+  background-color: blue;
 }
 
 /* Ajuste para pantallas más pequeñas */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .productos-info-list {
-    grid-template-columns: 1fr; /* Para pantallas pequeñas, mostrar una sola columna */
-  }
-
-  .btn-add-product {
-    top: 20px; /* Ajustamos la posición en pantallas pequeñas */
-    right: 20px;
-    width: 50px; /* Botón más pequeño */
-    height: 50px;
-    font-size: 20px;
-  }
-
-  .producto-info h3 {
-    font-size: 20px; /* Texto más pequeño para pantallas pequeñas */
-  }
-
-  .producto-info p {
-    font-size: 14px;
-  }
-
-  .producto-info .precio {
-    font-size: 16px;
-  }
-
-  .productos-info-container {
-    padding: 20px; /* Reduce el padding en pantallas pequeñas */
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas medianas */
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  .productos-info-list {
+    grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+  }
+
+  .producto-info-card {
+    width: 100%; /* Ancho completo en pantallas pequeñas */
+  }
+
   .btn-add-product {
-    top: 15px;
-    right: 15px;
-    width: 45px; /* Botón aún más pequeño */
-    height: 45px;
-    font-size: 18px;
-  }
-
-  .producto-info h3 {
-    font-size: 18px;
-  }
-
-  .producto-info p {
-    font-size: 12px;
-  }
-
-  .producto-info .precio {
-    font-size: 14px;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
   }
 }

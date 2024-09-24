@@ -1,22 +1,48 @@
-/* Navbar.css */
+/* Ajustamos el estilo de los enlaces de la navbar */
+.navbar-nav .nav-link {
+  font-size: 1rem;
+  padding: 0.5rem 1rem; 
+  color: #333; 
+  text-decoration: none;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #007bff; 
+}
+
+/* Botón de cerrar sesión como enlace */
+.navbar-nav .btn-logout {
+  font-size: 1rem; 
+  padding: 0.5rem 1rem; 
+  border: none; 
+  background: none; 
+  color: #333; 
+  cursor: pointer;
+}
+
+.navbar-nav .btn-logout:hover {
+  color: #007bff; 
+}
+
+/* Ajustes del botón de hamburguesa */
 .navbar-toggler.custom-toggler {
-  padding: 0.1rem 0.25rem; /* Reducimos aún más el padding */
-  font-size: 0.75rem; /* Reducimos el tamaño de la fuente */
-  background-color: #FFF5DD; /* Color personalizado */
-  border-radius: 5px; /* Bordes redondeados */
-  width: 50px; /* Ajustamos el ancho del botón */
-  height: 30px; /* Ajustamos la altura del botón */
-  position: absolute; /* Lo hacemos absoluto para posicionarlo */
-  top: 25px; /* Ajusta la distancia desde el borde superior */
-  right: 25px; /* Ajusta la distancia desde el borde derecho */
+  padding: 0.1rem 0.25rem; 
+  font-size: 0.75rem; 
+  background-color: #FFF5DD; 
+  border-radius: 5px; 
+  width: 50px; 
+  height: 30px; 
+  position: absolute; 
+  top: 25px; 
+  right: 25px; 
 }
 
 .navbar-toggler.custom-toggler:hover {
-  background-color: #FFF5DD; /* Cambia el color al hacer hover */
+  background-color: #FFF5DD; 
 }
 
+/* Ajuste del tamaño del logo */
 .navbar-brand img {
-  width: 30px; /* Ajustar el tamaño del logo */
+  width: 30px; 
   height: 30px;
 }
-
