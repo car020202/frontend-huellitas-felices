@@ -2,15 +2,14 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./Login/Login";
 import Dashboard from "./Dashboard/Dashboard";
-import EmployeeDashboard from "./EmployeeDashboard/EmployeeDashboard";
-import EmpleadoDashboard from "./Empleado/EmpleadoDashboard";
+import EmployeeDashboard from "./EmployeeDashboard/EmployeeDashboard"; 
+import EmpleadoDashboard from "./Empleado/EmpleadoDashboard"; // Importar el EmpleadoDashboard
 import PlanillaView from "./EmployeeDashboard/PlanillaView";
 import CrearPlanilla from "./EmployeeDashboard/CrearPlanilla";
 /* nuevas */
 import FormularioCita from "./Empleado/FormularioCita";
 import VistaCalendario from "./Empleado/VistaClendario";
 import EditarCita from "./Empleado/EditarCitas";
-
 import CitasCliente from "./Dashboard/CitasCliente";
 import TratamientosCliente from "./Dashboard/TratamientosCliente";
 import ProductosCliente from "./Dashboard/ProductosCliente";
@@ -28,11 +27,11 @@ import Factura from "./Dashboard/Factura";
 
 function App() {
   return (
-   <Router>
+    <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
 
-       
+        {/* Ruta existente para el Dashboard del usuario */}
         <Route
           path="/dashboard"
           element={
@@ -42,7 +41,7 @@ function App() {
           }
         />
 
-       
+        {/* Ruta existente para el Dashboard del empleado */}
         <Route
           path="/employee"
           element={
@@ -51,6 +50,18 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+        {/* Nueva ruta para el Dashboard del empleado (Empleado específico) */}
+        <Route
+          path="/empleado/dashboard"
+          element={
+            <ProtectedRoute roles={["empleado"]}>
+              <EmpleadoDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Otras rutas... */}
 
         <Route
           path="/employee/planillas"
@@ -69,7 +80,7 @@ function App() {
           }
         />
 
-       
+        {/* Rutas para citas y clientes */}
         <Route
           path="/citas/formulario"
           element={
@@ -95,7 +106,7 @@ function App() {
           }
         />
 
-       
+        {/* Rutas para clientes */}
         <Route
           path="/cliente/citas"
           element={
@@ -120,7 +131,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-
         <Route
           path="/cliente/producto-detalle/:id"
           element={
@@ -138,7 +148,7 @@ function App() {
           }
         />
 
-       
+        {/* Rutas para el admin */}
         <Route
           path="/admin"
           element={
@@ -172,10 +182,10 @@ function App() {
           }
         />
 
+        {/* Ruta de inicio */}
         <Route path="/" element={<Login />} />
       </Routes>
     </Router>
-    
   );
 }
 

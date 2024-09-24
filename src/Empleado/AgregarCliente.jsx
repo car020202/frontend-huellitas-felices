@@ -5,7 +5,9 @@ import "./AgregarCliente.css";
 const AgregarCliente = () => {
   return (
     <>
-      <Navbar />
+      <header>
+        <Navbar />
+      </header>
       <div className="background"> {/* Clase de fondo agregada */} 
         <div className="overlay-container">
           <div className="form-container">

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";  
 import "./Login.css";
 import dogImage from "../assets/perro.png"; 
-//import Navbar from "../Navbar/Navbar";
 import { useNavigate } from "react-router-dom";  
 
 const Login = () => {
@@ -11,7 +10,7 @@ const Login = () => {
   const [error, setError] = useState('');  
   const navigate = useNavigate(); 
 
-  
+  // Mapea los roles que devuelves desde el backend a los nombres usados en el frontend.
   const mapRoleToName = (role) => {
     switch (role) {
       case "admin":
@@ -27,54 +26,53 @@ const Login = () => {
     }
   };
 
-  
+  // Maneja la autenticación del usuario.
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      
+      // Realiza la solicitud al servidor para el inicio de sesión.
       const response = await axios.post('http://localhost:3000/usuario/login', {
         correo,
         contraseña
       });
 
-     
+      // Almacena el token en localStorage si la autenticación fue exitosa.
       const token = response.data.token;
       localStorage.setItem('token', token);
 
-     
+      // Decodifica el payload del token para obtener los detalles del usuario.
       const payload = JSON.parse(atob(token.split('.')[1]));
 
       console.log('Token Payload:', payload);  
 
       const rol = mapRoleToName(payload.rol); 
 
-     
+      // Redirige al usuario según su rol.
       switch (rol) {
         case 'admin':
-          navigate('/admin');  
+          navigate('/admin');  // Redirige al dashboard de administrador
           break;
         case 'empleado':
-          navigate('/empleado/dashboard');
+          navigate('/empleado/dashboard'); // Redirige al dashboard de empleado
           break;
         case 'contador':
-          navigate('/employee');
+          navigate('/employee');  // Redirige al dashboard de contador
           break;
         case 'usuario':
-          navigate('/dashboard');
+          navigate('/dashboard');  // Redirige al dashboard de usuario
           break;
         default:
           navigate('/login');
       }
       
     } catch (error) {
-      
+      // Maneja los errores de autenticación.
       setError('Credenciales incorrectas. Inténtalo de nuevo.');
     }
   };
 
   return (
     <>
-    
       <div className="background">
         <div className="overlay">
           <div className="content-container">
@@ -125,4 +123,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Login;

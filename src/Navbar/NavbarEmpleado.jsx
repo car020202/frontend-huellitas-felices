@@ -1,23 +1,26 @@
 import React from "react";
-import logo from "../assets/huellitas.png"; // Logo de la veterinaria
-import "./Navbar.css"; // Importa tu CSS para la barra de navegación
+import { useNavigate } from "react-router-dom";  
+import logo from "../assets/huellitas.png"; 
+import "./Navbar.css"; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
-
 const Navbar = () => {
-  // Función para manejar la redirección
+  const navigate = useNavigate();  
+
+  // Función para manejar la redirección al login
   const handleLoginClick = () => {
-    window.location.href = "./Login/Login"; // Cambia la ruta según tu configuración
+    localStorage.removeItem("token"); // Eliminar token o datos de sesión si es necesario
+    navigate("/login"); // Redirige a la página de login
   };
 
   return (
     <header>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
-        <div className="container-fluid d-flex justify-content-between align-items-center">
-          {/* Agregamos el logo dentro del enlace de la marca */}
-          <a className="navbar-brand" href="#">
+        <div className="container-fluid">
+          <a className="navbar-brand d-flex align-items-center" href="/">
             <img src={logo} alt="Veterinaria Logo" style={{ width: '40px', height: '40px' }} />
+            <span className="ms-2">Veterinaria</span> {/* Agrega el nombre si lo deseas */}
           </a>
           <button
             className="navbar-toggler custom-toggler"
@@ -31,36 +34,36 @@ const Navbar = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul className="navbar-nav">
+            <ul className="navbar-nav align-items-center">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
-                  inicio
+                <a className="nav-link active" aria-current="page" href="/">
+                  Inicio
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="/crear-usuario">
                   Crear Usuario
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="/agregar-mascota">
                   Agregar Mascota
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Ver Calendario de citas
+                <a className="nav-link" href="/calendario-citas">
+                  Ver Calendario de Citas
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="/crear-cita">
                   Crear Cita
                 </a>
               </li>
               <li className="nav-item">
-                {/* Evento onClick para redirigir a la página de login */}
-                <a className="nav-link btn btn-outline btn-login" href="#" onClick={handleLoginClick}>
-                  Cerra Sesion
+                {/* Evento onClick para cerrar sesión y redirigir */}
+                <a className="btn btn-outline btn-login" onClick={handleLoginClick}>
+                  Cerrar Sesión
                 </a>
               </li>
             </ul>
