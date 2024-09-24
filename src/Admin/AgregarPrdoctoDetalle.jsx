@@ -1,6 +1,7 @@
 import React from "react";
 import './AgregarProductoDetalle.css'; // Estilos opcionales
 import Navbar from "../Navbar/NavbarAdmin";
+import Footer from "../Footer/Footer";
 
 const AgregarProductoDetalle = () => {
   return (
@@ -43,6 +44,7 @@ const AgregarProductoDetalle = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

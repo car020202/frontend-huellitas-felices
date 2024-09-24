@@ -1,0 +1,42 @@
+.footer {
+    background-color: #E5F3FF; /* Color oscuro de fondo */
+    color: #fff;
+  }
+  
+  .footer h5 {
+    color: #000000;
+    font-weight: bold;
+  }
+  
+  .footer p {
+    color: #6b6b6b;
+    line-height: 1.8;
+  }
+  
+  .footer ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer ul li {
+    color: #6b6b6b;
+    margin-bottom: 10px;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .social-icon {
+    color: #000; /* Cambia el color a negro para que sea visible */
+    font-size: 24px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icon:hover {
+    color: #FFF5DD; /* Mantén el efecto hover */
+  }
+  
+  

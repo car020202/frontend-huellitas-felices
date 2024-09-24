@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../Navbar/NavbarEmployee";
+import Footer from "../Footer/Footer";
 import "./PlanillaView.css"; // Crear un archivo CSS para los estilos
 
 function PlanillaView() {
@@ -54,6 +55,7 @@ function PlanillaView() {
           </table>
         </div>
       </section>
+      <Footer/>
     </>
   );
 }

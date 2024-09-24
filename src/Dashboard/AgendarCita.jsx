@@ -1,6 +1,7 @@
 import React from "react";
 import "./AgendarCita.css";
 import Navbar from "../Navbar/NavbarLogiado";
+import Footer from "../Footer/Footer";
 import imagenCita from "../assets/traetmeantsf.png"; // Asegúrate de importar la imagen correcta
 
 const AgendarCita = () => {
@@ -55,6 +56,7 @@ const AgendarCita = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

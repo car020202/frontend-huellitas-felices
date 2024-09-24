@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './AgregarProductos.css'; // Estilos opcionales
 import Navbar from "../Navbar/NavbarAdmin";
+import Footer from "../Footer/Footer";
 
 // Imágenes para los productos
 import producto1Img from '../assets/producto1.webp';
@@ -74,6 +75,7 @@ const ProductosCliente = () => {
           ))}
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

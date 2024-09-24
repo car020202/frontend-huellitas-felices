@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../Navbar/NavbarEmployee";
+import Footer from "../Footer/Footer";
 import perro from "../assets/perro.png";
 import "./CrearPlanilla.css"; // Puedes usar estilos personalizados o solo Bootstrap
 
@@ -156,6 +157,7 @@ function CrearPlanilla() {
         </div>
       </div>
       </div>
+      <Footer/>
     </>
   );
 }

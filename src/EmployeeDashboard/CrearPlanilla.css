@@ -1,5 +1,6 @@
 /* Contenedor principal con Flexbox */
 .planilla-container {
+  margin-bottom: 2rem;
     display: flex;
     justify-content: center;
     align-items: flex-start;

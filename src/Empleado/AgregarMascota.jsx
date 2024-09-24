@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../Navbar/NavbarEmpleado";
+import Footer from "../Footer/Footer";
 // import './AgregarMascota.css'; // Importa los estilos de CSS
 
 const AgregarMascota = () => {
@@ -76,6 +77,7 @@ const AgregarMascota = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

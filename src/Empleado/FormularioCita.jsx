@@ -1,6 +1,7 @@
 import React from "react";
 import "./FormularioCita.css";
 import Navbar from "../Navbar/NavbarEmpleado";
+import Footer from "../Footer/Footer";
 import imagenCita from "../assets/traetmeantsf.png"; // Asegúrate de importar la imagen correcta
 
 const FormularioCita = () => {
@@ -52,6 +53,7 @@ const FormularioCita = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios"; 
 import "./CrearUsuario.css"; 
 import Navbar from "../Navbar/NavbarAdmin";
+import Footer from "../Footer/Footer";
 import { useNavigate } from "react-router-dom"; 
 
 const CrearUsuario = () => {
@@ -131,6 +132,7 @@ const CrearUsuario = () => {
           </div>
         </div>
       </div>
+      <Footer/>
 
      
       {showModal && (
@@ -138,6 +140,7 @@ const CrearUsuario = () => {
           <p>Usuario creado con éxito</p>
         </div>
       )}
+      
     </>
   );
 };

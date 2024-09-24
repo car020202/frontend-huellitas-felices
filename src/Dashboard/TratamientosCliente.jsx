@@ -1,6 +1,7 @@
 import React from 'react';
 import './TratamientosCliente.css'; // Estilos actualizados
 import Navbar from "../Navbar/NavbarLogiado";
+import Footer from "../Footer/Footer";
 
 // Imágenes para los tratamientos
 import vacunacionImg from '../assets/vacunacion.webp';
@@ -61,6 +62,7 @@ const TratamientosCliente = () => {
           ))}
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

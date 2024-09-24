@@ -2,6 +2,7 @@ import React from 'react';
 import './ProductoDetalle.css'; // Archivo CSS para los estilos
 import Navbar from "../Navbar/NavbarLogiado";
 import producto1Img from '../assets/producto1.webp';
+import Footer from "../Footer/Footer";
 
 
 const ProductoDetalle = () => {
@@ -35,6 +36,7 @@ const ProductoDetalle = () => {
         </div>
       </div>
     </div>
+    <Footer/>
     </>
   );
 };

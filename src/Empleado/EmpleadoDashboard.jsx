@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../Navbar/NavbarEmpleado";
 import "./Dashboard.css";
+import Footer from "../Footer/Footer";
 import dogImage from "../assets/perritohome.png"; // Imagen del perro en el banner
 import backgroundShapes from "../assets/fondo.png"; // Imagen de formas detrás del perro
 
@@ -106,6 +107,7 @@ function Dashboard() {
           <img src={contactImage} alt="Dog" />
         </div>
       </section>
+      <Footer/>
     </>
   );
 }

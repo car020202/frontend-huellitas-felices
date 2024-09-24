@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom"; // Importar el hook useNavigate
 import Navbar from "../Navbar/NavbarAdmin";
+import Footer from "../Footer/Footer";
 import "./AdminDashboard.css";
 import dogImage from "../assets/perritohome.png"; 
 import backgroundShapes from "../assets/fondo.png";
@@ -98,6 +99,7 @@ function Dashboard() {
           <img src={contactImage} alt="Dog" />
         </div>
       </section>
+      <Footer/>
     </>
   );
 }
