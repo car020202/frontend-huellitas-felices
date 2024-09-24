@@ -20,8 +20,6 @@ import emailIcon from "../assets/email_icon.svg";
 import phoneIcon from "../assets/telefono_icon.svg";
 import contactImage from "../assets/contact.png";
 
-// No necesitas la navbar aquí, ya que la usarás como un layout aparte
-
 function Dashboard() {
   return (
     <>
@@ -42,29 +40,29 @@ function Dashboard() {
       </section>
 
       <div className="cards">
-        <div className="card">
+        <a href="/cliente/citas" className="card">
           <img src={datingImage} alt="Dating" />
           <div className="card-text">
             <h3>Citas</h3>
             <p>Esté al tanto a las citas de su mascota</p>
           </div>
-        </div>
+        </a>
         
-        <div className="card">
+        <a href="/cliente/productos" className="card">
           <img src={productsImage} alt="Products" />
           <div className="card-text">
             <h3>Productos</h3>
-            <p>Products para el cuidado de tu mascota.</p>
+            <p>Productos para el cuidado de tu mascota.</p>
           </div>
-        </div>
+        </a>
 
-        <div className="card">
+        <a href="/cliente/agendar-cita" className="card">
           <img src={crearcita} alt="crearcita" />
           <div className="card-text">
-            <h3>Agedar cita</h3>
+            <h3>Agendar cita</h3>
             <p></p>
           </div>
-        </div>
+        </a>
       </div>
 
       <section className="treatments-section">
@@ -78,7 +76,7 @@ function Dashboard() {
           </div>
           <div className="treatments-text">
             <h2>Tratamientos</h2>
-            <p>Tratamientos disponible en nuestra veterinaria.</p>
+            <p>Tratamientos disponibles en nuestra veterinaria.</p>
             <a href="#go" className="treatment-go-button">
               Ir
             </a>
@@ -125,7 +123,7 @@ function Dashboard() {
           <img src={contactImage} alt="Dog" />
         </div>
       </section>
-      < Footer/>
+      <Footer />
     </>
   );
 }

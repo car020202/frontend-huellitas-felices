@@ -5,8 +5,8 @@ import "./Navbar.css"; // Importa tu CSS para la barra de navegación
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
-const Navbar = () => {
-  const navigate = useNavigate(); // Usamos useNavigate para redirigir a la página de login
+const Navbar = ({ carrito = [] }) => {  // Aseguramos que el carrito sea un array por defecto
+  const navigate = useNavigate(); // Usamos useNavigate para redirigir a la página de factura
 
   // Función para manejar la redirección al login
   const handleLoginClick = () => {
@@ -14,11 +14,15 @@ const Navbar = () => {
     navigate("/login"); // Redirige a la página de login
   };
 
+  // Redirigir al carrito (Factura)
+  const handleCarritoClick = () => {
+    navigate("/cliente/factura"); // Redirigir a la vista de Factura
+  };
+
   return (
     <header>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid d-flex justify-content-between align-items-center">
-          {/* Agregamos el logo dentro del enlace de la marca */}
           <Link className="navbar-brand" to="/">
             <img src={logo} alt="Veterinaria Logo" style={{ width: '40px', height: '40px' }} />
           </Link>
@@ -56,18 +60,19 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                {/* Navlink para Ver Carrito con logo */}
-                <Link className="nav-link" to="/cliente/carrito" title="Ver Carrito">
+                {/* Navlink para Ver Carrito con logo y número de artículos */}
+                <a className="nav-link" onClick={handleCarritoClick} title="Ver Carrito">
                   <img
                     src="https://img.icons8.com/material-outlined/24/000000/shopping-cart.png"
                     alt="Carrito"
                   />
-                </Link>
+                  <span className="carrito-count">{carrito.length}</span> {/* Muestra el número de productos */}
+                </a>
               </li>
               <li className="nav-item">
                 {/* Evento onClick para redirigir a la página de login */}
                 <a className="nav-link btn btn-outline btn-login" href="#" onClick={handleLoginClick}>
-                  Cerra Sesion
+                  Cerrar Sesión
                 </a>
               </li>
             </ul>

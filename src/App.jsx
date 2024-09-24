@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./Login/Login";
 import Dashboard from "./Dashboard/Dashboard";
@@ -19,19 +19,31 @@ import AdminDashboard from "./Admin/AdminDashboard";
 import AgregarProductos from "./Admin/AgregarProductos";
 import AgregarProductoDetalle from "./Admin/AgregarPrdoctoDetalle";
 import CrearUsuario from "./Admin/CrearUsuario";
-import AgregarCliente from "./Empleado/AgregarCliente"; // Importar AgregarCliente
-import AgregarMascota from "./Empleado/AgregarMascota"; // Importar AgregarMascota
+import AgregarCliente from "./Empleado/AgregarCliente"; 
+import AgregarMascota from "./Empleado/AgregarMascota"; 
 import ProductoDetalle from "./Dashboard/ProductoDetalle";
 import AgendarCita from "./Dashboard/AgendarCita";
-import Factura from "./Dashboard/Factura";
+import Factura from "./Dashboard/Factura"; // Aquí se importa Factura
 
 function App() {
+  const [carrito, setCarrito] = useState([]); // Estado global del carrito
+
+  // Función para agregar productos al carrito
+  const agregarAlCarrito = (producto) => {
+    setCarrito((prevCarrito) => [...prevCarrito, producto]);
+  };
+
   return (
     <Router>
       <Routes>
+
+        {/* Ruta de inicio */}
+        <Route path="/" element={<Login />} />
+
+        {/* Ruta para el login */}
         <Route path="/login" element={<Login />} />
 
-        {/* Ruta existente para el Dashboard del usuario */}
+        {/* Rutas para el cliente */}
         <Route
           path="/dashboard"
           element={
@@ -40,8 +52,56 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/cliente/productos"
+          element={
+            <ProtectedRoute roles={["usuario"]}>
+              <ProductosCliente carrito={carrito} agregarAlCarrito={agregarAlCarrito} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/cliente/factura"
+          element={
+            <ProtectedRoute roles={["usuario"]}>
+              <Factura carrito={carrito} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/cliente/citas"
+          element={
+            <ProtectedRoute roles={["usuario"]}>
+              <CitasCliente />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/cliente/tratamientos"
+          element={
+            <ProtectedRoute roles={["usuario"]}>
+              <TratamientosCliente />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/cliente/producto-detalle/:id"
+          element={
+            <ProtectedRoute roles={["usuario"]}>
+              <ProductoDetalle />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/cliente/agendar-cita"
+          element={
+            <ProtectedRoute roles={["usuario"]}>
+              <AgendarCita />
+            </ProtectedRoute>
+          }
+        />
 
-        {/* Ruta existente para el Dashboard del empleado */}
+        {/* Rutas para el empleado */}
         <Route
           path="/employee"
           element={
@@ -50,8 +110,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-
-        {/* Nueva ruta para el Dashboard del empleado */}
         <Route
           path="/empleado/dashboard"
           element={
@@ -60,8 +118,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-
-        {/* Rutas de planillas */}
         <Route
           path="/employee/planillas"
           element={
@@ -101,48 +157,6 @@ function App() {
           element={
             <ProtectedRoute roles={["empleado"]}>
               <EditarCita />
-            </ProtectedRoute>
-          }
-        />
-
-        {/* Rutas para clientes */}
-        <Route
-          path="/cliente/citas"
-          element={
-            <ProtectedRoute roles={["usuario"]}>
-              <CitasCliente />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/cliente/tratamientos"
-          element={
-            <ProtectedRoute roles={["usuario"]}>
-              <TratamientosCliente />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/cliente/productos"
-          element={
-            <ProtectedRoute roles={["usuario"]}>
-              <ProductosCliente />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/cliente/producto-detalle/:id"
-          element={
-            <ProtectedRoute roles={["usuario"]}>
-              <ProductoDetalle />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/cliente/agendar-cita"
-          element={
-            <ProtectedRoute roles={["usuario"]}>
-              <AgendarCita />
             </ProtectedRoute>
           }
         />
@@ -199,8 +213,6 @@ function App() {
           }
         />
 
-        {/* Ruta de inicio */}
-        <Route path="/" element={<Login />} />
       </Routes>
     </Router>
   );

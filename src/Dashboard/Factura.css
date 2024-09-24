@@ -1,153 +1,103 @@
-
 .background {
-    position: relative;
-    min-height: 100vh; /* Asegura que cubra toda la pantalla */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* Desactiva el scroll en toda la página */
-  }
-  
-  .background::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('../assets/backgroundCalendario.jpeg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.77;
-    z-index: -1;
-  }
-  
-  .overlay {
-    background-color: rgb(230, 243, 255, 0.77);  /* Fondo translúcido */
-    /*background-color: #E5F3FF;  /* Fondo translúcido */
-  
-    padding: 1rem; /* Añade algo de padding para darle espacio */
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-    max-width: 1200px;
-    max-height: 700px;
-    margin: auto; /* Centra la capa */
-  }
-  .text-center{
-    padding-bottom: 50px;
-  }
-  
-  .btnpago{
-   background-color: #FFF5DD;
-  }
-  .btnpago:hover{
-    background-color: rgb(193, 226, 255);
-  }
-  .badge{
-    padding-top: 15px;
-    display: flex;
-    justify-content: center;
-    font-size:medium;
-    width: 100px;
-    height: 50px;
-    color: black;
-    background-color: #FFF5DD;
-  }
-  /* Asegura que el contenedor ocupe todo el ancho y alto */
-  .background {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* Estilos para el overlay */
-  .overlay-factura {
-    background-color: rgba(230, 243, 255, 0.77);
-    padding: 1rem;
-    border-radius: 20px;
-    width: 100%;
-    max-width: 900px;
-  }
-  
-  /* Producto item: Alinea todo en el centro */
-  .product-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  /* Contenido del producto con flex para centrar */
-  .product-content {
-    display: flex;
-    align-items: center;
-  }
-  
-  /* Imagen del producto */
+  position: relative;
+  min-height: 100vh; /* Asegura que cubra toda la pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Desactiva el scroll en toda la página */
+  padding: 20px 0; /* Añadir espacio en la parte superior e inferior */
+}
+
+.background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../assets/backgroundCalendario.jpeg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.77;
+  z-index: -1;
+}
+
+.overlay-factura {
+  background-color: rgba(230, 243, 255, 0.77);
+  padding: 1.5rem; /* Más espacio en los bordes */
+  border-radius: 20px;
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Agregar sombra para profundidad */
+}
+
+h1.text-center {
+  margin-bottom: 40px; /* Espacio extra para despejar el título */
+}
+
+.list-group-item {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem; /* Añadir espacio entre los elementos del carrito */
+}
+
+.product-content {
+  display: flex;
+  align-items: center;
+}
+
+.product-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.total-section {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-top: 40px; /* Añadir espacio antes del total */
+}
+
+.text-center {
+  margin-top: 40px; /* Espacio antes del botón */
+}
+
+.btnpago {
+  background-color: #FFD700;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+}
+
+.btnpago:hover {
+  background-color: #FFC700;
+}
+
+@media (max-width: 576px) {
   .product-img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    margin-right: 15px;
+    width: 60px;
+    height: 60px;
   }
-  
-  /* Centrar la información del producto */
-  .product-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;
-  }
-  
-  /* Ajusta el tamaño de la tarjeta de producto */
+
   .list-group-item {
-    width: 700px;
-    padding-left: 100px;
-    padding: 1.5rem;
-    display: flex;
-    align-items: center;
-    align-items: center;
+    padding: 1rem;
   }
-  
-  /* Botón personalizado */
+
+  .badge {
+    font-size: 0.8rem;
+  }
+
   .btnpago {
-    background-color: #FFF5DD;
-    color: rgb(0, 0, 0);
+    width: 100%;
   }
-  
-  .btnpago:hover {
-    background-color: #fdecc2;
-  }
-  /* Para pantallas pequeñas (móviles) */
-  @media (max-width: 576px) {
-    .overlay {
-      width: 100%;
-    }
-
-    .list-group-item{
-        width: 300px;
-
-    }
-    .product-img {
-      width: 60px;
-      height: 60px;
-    }
-  
-    .badge {
-      width: 70px;
-      height: 30px;
-      font-size: smaller;
-    }
-  
-    .btnpago {
-      width: 100%;
-      padding: 10px;
-    }
-  }
-  
-  
+}
