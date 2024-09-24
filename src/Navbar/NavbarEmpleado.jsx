@@ -14,13 +14,18 @@ const Navbar = () => {
     navigate("/login"); // Redirige a la página de login
   };
 
+  // Función para redirigir al dashboard del empleado
+  const handleDashboardClick = () => {
+    navigate("/empleado/dashboard"); // Redirige al dashboard del empleado
+  };
+
   return (
     <header>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <a className="navbar-brand d-flex align-items-center" href="/">
+          <a className="navbar-brand d-flex align-items-center" onClick={handleDashboardClick} style={{ cursor: 'pointer' }}>
             <img src={logo} alt="Veterinaria Logo" style={{ width: '40px', height: '40px' }} />
-            <span className="ms-2">Veterinaria</span> {/* Agrega el nombre si lo deseas */}
+            <span className="ms-2">Veterinaria</span>
           </a>
           <button
             className="navbar-toggler custom-toggler"
@@ -36,33 +41,34 @@ const Navbar = () => {
           <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul className="navbar-nav align-items-center">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/">
+                {/* Redirige al dashboard del empleado cuando se haga clic en "Inicio" */}
+                <a className="nav-link active" aria-current="page" onClick={handleDashboardClick} style={{ cursor: 'pointer' }}>
                   Inicio
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/crear-usuario">
-                  Crear Usuario
+                <a className="nav-link" href="/empleado/agregar-cliente">
+                  Crear Cliente
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/agregar-mascota">
+                <a className="nav-link" href="/empleado/agregar-mascota">
                   Agregar Mascota
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/calendario-citas">
+                <a className="nav-link" href="/citas/calendario">
                   Ver Calendario de Citas
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/crear-cita">
+                <a className="nav-link" href="/citas/formulario">
                   Crear Cita
                 </a>
               </li>
               <li className="nav-item">
                 {/* Evento onClick para cerrar sesión y redirigir */}
-                <a className="btn btn-outline btn-login" onClick={handleLoginClick}>
+                <a className="btn btn-outline btn-login" onClick={handleLoginClick} style={{ cursor: 'pointer' }}>
                   Cerrar Sesión
                 </a>
               </li>

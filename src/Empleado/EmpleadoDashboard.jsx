@@ -55,7 +55,7 @@ function Dashboard() {
           </div>
         </div>
 
-        <div className="card" onClick={() => navigate("/empleado/calendario-citas")}>
+        <div className="card" onClick={() => navigate("/citas/calendario")}>
           <img src={datingImage} alt="vistaCalendario" />
           <div className="card-text">
             <h3>Ver Calendario de citas</h3>
@@ -63,7 +63,7 @@ function Dashboard() {
           </div>
         </div>
 
-        <div className="card" onClick={() => navigate("/empleado/crear-cita")}>
+        <div className="card" onClick={() => navigate("/citas/formulario")}>
           <img src={CrearCitaImage} alt="CrearCita" />
           <div className="card-text">
             <h3>Crear Cita</h3>

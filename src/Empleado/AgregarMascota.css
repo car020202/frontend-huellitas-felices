@@ -1,7 +1,7 @@
 /* Estilos para el contenedor del formulario */
 .form-container {
     width: 1200px;
-    height: 900px !important; /* Esto forzará la altura */
+    height: 600px !important; /* Esto forzará la altura */
     margin: 150px;
     padding: 20px;
     background-color: white;
@@ -54,8 +54,3 @@
     }
   }
   
-  select {
-    white-space: nowrap; /* Evita que el texto se corte */
-    overflow: hidden;
-    text-overflow: ellipsis; /* Muestra puntos suspensivos si el texto es demasiado largo */
-  }
