@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";  
 import "./Login.css";
 import dogImage from "../assets/perro.png"; 
-import Navbar from "../Navbar/Navbar";
+//import Navbar from "../Navbar/Navbar";
 import { useNavigate } from "react-router-dom";  
 
 const Login = () => {
@@ -74,10 +74,7 @@ const Login = () => {
 
   return (
     <>
-      <header>
-        <Navbar />
-      </header>
-
+    
       <div className="background">
         <div className="overlay">
           <div className="content-container">

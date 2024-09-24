@@ -25,8 +25,8 @@ function EmployeeDashboard() {
       <Navbar />
       <section className="banner">
         <div className="banner-content">
-          <h1>Care for your pet</h1>
-          <p>Rest easy, your beloved friend is in safe hands.</p>
+          <h1>Iniciaste Sesión como contador</h1>
+          <p></p>
         </div>
         <div className="banner-image">
           <img

@@ -39,33 +39,33 @@ const Navbar = () => {
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">
-                  Treatments
+                  Tratramientos
                 </a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">
-                  Dating
+                  Citas
                 </a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">
-                  Products
+                  Productos
                 </a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">
-                  Consultations
+                  Consultas
                 </a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">
-                  Contact
+                  Contactp
                 </a>
               </li>
               <li className="nav-item">
                 {/* Evento onClick para redirigir a la página de login */}
                 <a className="nav-link btn btn-outline btn-login" href="#" onClick={handleLoginClick}>
-                  Login
+                  Iniciar Sesión
                 </a>
               </li>
             </ul>

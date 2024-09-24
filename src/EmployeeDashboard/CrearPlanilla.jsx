@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Navbar from "../Navbar/NavbarLogiado";
+import Navbar from "../Navbar/NavbarEmployee";
 import perro from "../assets/perro.png";
 import "./CrearPlanilla.css"; // Puedes usar estilos personalizados o solo Bootstrap
 
@@ -139,7 +139,7 @@ function CrearPlanilla() {
               />
             </div>
             <div className="form-group">
-              <label>ID Usuario:</label>
+              <label> Nombre dle empleado:</label>
               <input
                 type="number"
                 name="id_usuario"

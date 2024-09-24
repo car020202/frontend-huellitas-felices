@@ -34,38 +34,33 @@ const Navbar = () => {
             <ul className="navbar-nav">
               <li className="nav-item">
                 <a className="nav-link active" aria-current="page" href="#">
-                  Home
+                  Inicio
                 </a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">
-                  Treatments
+                  Tratamientos
                 </a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">
-                  Dating
+                  Citas
                 </a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">
-                  Products
+                  Productos
                 </a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">
-                  Consultations
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Contact
+                  Contacto
                 </a>
               </li>
               <li className="nav-item">
                 {/* Evento onClick para redirigir a la página de login */}
                 <a className="nav-link btn btn-outline btn-login" href="#" onClick={handleLoginClick}>
-                  Cerra Sesion
+                  Cerrar Sesión
                 </a>
               </li>
             </ul>

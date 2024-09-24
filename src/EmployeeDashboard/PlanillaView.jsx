@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../Navbar/NavbarLogiado";
+import Navbar from "../Navbar/NavbarEmployee";
 import "./PlanillaView.css"; // Crear un archivo CSS para los estilos
 
 function PlanillaView() {

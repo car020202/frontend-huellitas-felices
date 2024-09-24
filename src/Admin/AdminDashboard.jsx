@@ -26,8 +26,8 @@ function Dashboard() {
       <Navbar />
       <section className="banner">
         <div className="banner-content">
-          <h1>Care for your pet</h1>
-          <p>Rest easy, your beloved friend is in safe hands.</p>
+          <h1>has iniciado como administrador.</h1>
+          
         </div>
         <div className="banner-image">
           <img

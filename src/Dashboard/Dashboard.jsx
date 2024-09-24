@@ -27,8 +27,8 @@ function Dashboard() {
       <Navbar />
       <section className="banner">
         <div className="banner-content">
-          <h1>Care for your pet</h1>
-          <p>Rest easy, your beloved friend is in safe hands.</p>
+          <h1>Cuidamos de tu mascota.</h1>
+          <p>Descansa tranquilo, tu querido amigo está en buenas manos.</p>
         </div>
         <div className="banner-image">
           <img
@@ -44,22 +44,16 @@ function Dashboard() {
         <div className="card">
           <img src={datingImage} alt="Dating" />
           <div className="card-text">
-            <h3>Dating</h3>
-            <p>Keep an eye on your pet's appointments</p>
+            <h3>Citas</h3>
+            <p>Esté al tanto a las citas de su mascota</p>
           </div>
         </div>
-        <div className="card">
-          <img src={consultationsImage} alt="Consultations" />
-          <div className="card-text">
-            <h3>Consultations</h3>
-            <p>Be in control of your pet's or pets' inquiries.</p>
-          </div>
-        </div>
+        
         <div className="card">
           <img src={productsImage} alt="Products" />
           <div className="card-text">
-            <h3>Products</h3>
-            <p>Products for the care and maintenance of your friend.</p>
+            <h3>Productos</h3>
+            <p>Products para el cuidado de tu mascota.</p>
           </div>
         </div>
 
@@ -82,10 +76,10 @@ function Dashboard() {
             />
           </div>
           <div className="treatments-text">
-            <h2>Treatments</h2>
-            <p>Rest easy, your beloved friend is in safe hands.</p>
+            <h2>Tratamientos</h2>
+            <p>Tratamientos disponible en nuestra veterinaria.</p>
             <a href="#go" className="treatment-go-button">
-              Go
+              Ir
             </a>
           </div>
         </div>
