@@ -1,33 +1,34 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; // Importar el hook useNavigate
 import Navbar from "../Navbar/NavbarAdmin";
 import "./AdminDashboard.css";
-import dogImage from "../assets/perritohome.png"; // Imagen del perro en el banner
-import backgroundShapes from "../assets/fondo.png"; // Imagen de formas detrás del perro
-
-// Aquí importamos las imágenes .de las cards
-;
+import dogImage from "../assets/perritohome.png"; 
+import backgroundShapes from "../assets/fondo.png";
 import consultationsImage from "../assets/user.png";
 import productsImage from "../assets/producto3.webp";
-
-// Aquí importamos las imágenes de la sección
-import TreatmentsImage from "../assets/traetmeantsf.png";
-
-// Importamos las imágenes de los íconos para la sección de Contacto
 import locationIcon from "../assets/ubicacion_icon.svg";
 import emailIcon from "../assets/email_icon.svg";
 import phoneIcon from "../assets/telefono_icon.svg";
 import contactImage from "../assets/contact.png";
 
-// No necesitas la navbar aquí, ya que la usarás como un layout aparte
-
 function Dashboard() {
+  const navigate = useNavigate(); 
+
+  
+  const handleCreateUserClick = () => {
+    navigate('/admin/crear-usuario');
+  };
+
+  const handleAddProductClick = () => {
+    navigate('/admin/agregar-productos');
+  };
+
   return (
     <>
       <Navbar />
       <section className="banner">
         <div className="banner-content">
           <h1>has iniciado como administrador.</h1>
-          
         </div>
         <div className="banner-image">
           <img
@@ -41,14 +42,15 @@ function Dashboard() {
 
       <div className="cards">
         
-        <div className="card">
+        <div className="card" onClick={handleCreateUserClick}>
           <img src={consultationsImage} alt="Consultations" />
           <div className="card-text">
             <h3>Crear usuarios</h3>
             <p>Be in control of your pet's or pets' inquiries.</p>
           </div>
         </div>
-        <div className="card">
+        
+        <div className="card" onClick={handleAddProductClick}> 
           <img src={productsImage} alt="Products" />
           <div className="card-text">
             <h3>Agregar Productos</h3>
@@ -56,8 +58,6 @@ function Dashboard() {
           </div>
         </div>
       </div>
-
-      
 
       <section className="contact-section">
         <div className="contact-container">

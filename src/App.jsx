@@ -6,7 +6,7 @@ import EmployeeDashboard from "./EmployeeDashboard/EmployeeDashboard";
 import EmpleadoDashboard from "./Empleado/EmpleadoDashboard";
 import PlanillaView from "./EmployeeDashboard/PlanillaView";
 import CrearPlanilla from "./EmployeeDashboard/CrearPlanilla";
-/*nuevas*/
+/* nuevas */
 import FormularioCita from "./Empleado/FormularioCita";
 import VistaCalendario from "./Empleado/VistaClendario";
 import EditarCita from "./Empleado/EditarCitas";
@@ -14,8 +14,8 @@ import EditarCita from "./Empleado/EditarCitas";
 import CitasCliente from "./Dashboard/CitasCliente";
 import TratamientosCliente from "./Dashboard/TratamientosCliente";
 import ProductosCliente from "./Dashboard/ProductosCliente";
-import ProtectedRoute from "./ProtectedRoute"; 
-/*nuevo*/
+import ProtectedRoute from "./ProtectedRoute";
+/* nuevo */
 import AdminDashboard from "./Admin/AdminDashboard";
 import AgregarProductos from "./Admin/AgregarProductos";
 import AgregarProductoDetalle from "./Admin/AgregarPrdoctoDetalle";
@@ -27,7 +27,7 @@ import AgendarCita from "./Dashboard/AgendarCita";
 
 function App() {
   return (
-   <Router>
+    <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
 
@@ -41,7 +41,7 @@ function App() {
           }
         />
 
-    
+       
         <Route
           path="/employee"
           element={
@@ -51,7 +51,6 @@ function App() {
           }
         />
 
-     
         <Route
           path="/employee/planillas"
           element={
@@ -69,7 +68,7 @@ function App() {
           }
         />
 
-        
+       
         <Route
           path="/citas/formulario"
           element={
@@ -95,7 +94,7 @@ function App() {
           }
         />
 
-        
+       
         <Route
           path="/cliente/citas"
           element={
@@ -121,10 +120,60 @@ function App() {
           }
         />
 
+        <Route
+          path="/cliente/producto-detalle/:id"
+          element={
+            <ProtectedRoute roles={["usuario"]}>
+              <ProductoDetalle />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/cliente/agendar-cita"
+          element={
+            <ProtectedRoute roles={["usuario"]}>
+              <AgendarCita />
+            </ProtectedRoute>
+          }
+        />
+
+       
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute roles={["admin"]}>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/agregar-productos"
+          element={
+            <ProtectedRoute roles={["admin"]}>
+              <AgregarProductos />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/agregar-producto-detalle/:id"
+          element={
+            <ProtectedRoute roles={["admin"]}>
+              <AgregarProductoDetalle />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/crear-usuario"
+          element={
+            <ProtectedRoute roles={["admin"]}>
+              <CrearUsuario />
+            </ProtectedRoute>
+          }
+        />
+
         <Route path="/" element={<Login />} />
       </Routes>
     </Router>
-    
   );
 }
 
