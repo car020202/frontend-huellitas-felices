@@ -125,7 +125,7 @@ const CrearUsuario = () => {
                 />
               </div>
 
-              <button type="submit" className="btn-submit">
+              <button type="submit" className="btn-guardar">
                 Agregar Usuario
               </button>
             </form>
