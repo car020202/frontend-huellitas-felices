@@ -1,5 +1,18 @@
+.containerf{
+  background-color: #E5F3FF;
+  width: 60%;
+    max-height: 750px;
+    margin: 50px auto;
+    justify-content: space-between;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    position: relative; /* Asegura que los elementos dentro se puedan mover con más flexibilidad */
+    overflow: hidden; /* Asegura que no se desborde */
+}
 .footer {
-    background-color: #E5F3FF; /* Color oscuro de fondo */
+    background-color: #FFF5DD; /* Color oscuro de fondo */
     color: #fff;
   }
   

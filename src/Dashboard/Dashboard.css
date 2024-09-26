@@ -172,69 +172,12 @@
 
 
 
-/* Sección de tratamientos */
-.treatments-section {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 2rem 0;
-  background-color: #E5F3FF;
-  flex-wrap: wrap;
-}
 
-.treatments-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem;
-  flex-wrap: wrap;
-}
-
-.treatments-image img {
-  width: 100%;
-  max-width: 500px;
-  height: auto;
-  border-radius: 10px;
-}
-
-.treatments-text {
-  text-align: left;
-}
-
-.treatments-text h2 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-.treatments-text p {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-}
-
-.treatment-go-button {
-  display: inline-block;
-  padding: 1rem 2rem;
-  background-color: #FFEBCD;
-  color: black;
-  text-decoration: none;
-  border: 1px solid black;
-  font-weight: bold;
-  font-size: 1.5rem;
-  text-align: center;
-  transition: background-color 0.3s ease;
-  
-}
-
-.treatment-go-button:hover {
-  background-color: #FFD700; /* Cambia el color al pasar el ratón */
-}
 
 
 
 /* Sección de contacto */
-.contact-section {
+.contact-sectionc {
   background-color: #ffffff;
   padding: 2rem 0;
   display: flex;
@@ -243,7 +186,7 @@
   flex-wrap: wrap;
 }
 
-.contact-container {
+.contact-containerc {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -255,35 +198,37 @@
   width: 100%;
   max-width: 1200px;
   flex-wrap: wrap;
+  margin-left: 100px; /* Añade margen al lado izquierdo */
 }
 
-.contact-details {
+
+.contact-detailsc {
   display: flex;
   justify-content: space-around;
   flex: 1;
   flex-wrap: wrap;
 }
 
-.contact-info {
+.contact-infoc {
   display: flex;
   align-items: center;
   padding: 0 1rem;
   margin-bottom: 1rem;
 }
 
-.contact-icon img {
+.contact-iconc img {
   width: 40px;
   height: 40px;
   margin-right: 15px;
 }
 
-.contact-info p {
+.contact-infoc p {
   font-size: 1.1rem;
   font-weight: 500;
   margin: 0;
 }
 
-.contact-image img {
+.contact-imagec img {
   width: 200px;
   height: auto;
 }
@@ -379,4 +324,39 @@
 .cards a:hover {
   text-decoration: none; /* Asegura que no haya subrayado en el hover */
   color: inherit;        /* Mantiene el color sin cambiar al pasar el cursor */
+}
+.map-section {
+  padding: 20px 0;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;   /* Alinea el contenido horizontalmente */
+}
+
+.map-container {
+  width: 75%;               /* El mapa ocupará el 75% del ancho de la sección */    
+  height: 450px;             /* Altura del mapa */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.map-container iframe {
+  width: 100%;               /* El iframe ocupará el 100% del ancho del contenedor */
+  height: 100%;              /* Asegura que el iframe ocupe todo el espacio en altura */
+  border: none;              /* Elimina el borde del iframe */
+}
+
+/* Responsivo para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .map-container {
+    width: 90%;              /* Aumenta el ancho del mapa al 90% en pantallas pequeñas */
+    height: 350px;           /* Reduce la altura del mapa en pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 576px) {
+  .map-container {
+    width: 100%;             /* El mapa ocupará el 100% del ancho en pantallas muy pequeñas */
+    height: 300px;           /* Ajusta la altura para pantallas móviles */
+  }
 }

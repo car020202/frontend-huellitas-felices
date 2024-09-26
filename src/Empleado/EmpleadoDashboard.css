@@ -79,7 +79,10 @@
   background-color: #E5F3FF; /* Color azul cielo para la tercera card */
 }
 .cards .card:nth-child(4) {
-  background-color: #E5F3FF; /* Color azul cielo para la tercera card */
+  background-color: #FFF5DD; /* Color azul cielo para la tercera card */
+}
+.cards .card:nth-child(5) {
+  background-color: #FFF5DD; /* Color azul cielo para la tercera card */
 }
 
 .card img {
@@ -237,7 +240,7 @@
 
 
 /* Sección de contacto */
-.contact-section {
+.contact-sectionem {
   background-color: #ffffff;
   padding: 2rem 0;
   display: flex;
@@ -246,7 +249,7 @@
   flex-wrap: wrap;
 }
 
-.contact-container {
+.contact-containerem {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -258,35 +261,37 @@
   width: 100%;
   max-width: 1200px;
   flex-wrap: wrap;
+  margin-left: 100px; /* Añade margen al lado izquierdo */
 }
 
-.contact-details {
+
+.contact-detailsem {
   display: flex;
   justify-content: space-around;
   flex: 1;
   flex-wrap: wrap;
 }
 
-.contact-info {
+.contact-infoem {
   display: flex;
   align-items: center;
   padding: 0 1rem;
   margin-bottom: 1rem;
 }
 
-.contact-icon img {
+.contact-iconem img {
   width: 40px;
   height: 40px;
   margin-right: 15px;
 }
 
-.contact-info p {
+.contact-infoem p {
   font-size: 1.1rem;
   font-weight: 500;
   margin: 0;
 }
 
-.contact-image img {
+.contact-imageem img {
   width: 200px;
   height: auto;
 }

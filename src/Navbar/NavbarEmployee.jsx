@@ -55,9 +55,9 @@ const Navbar = () => {
               </li>
               <li className="nav-item">
                 {/* Botón para cerrar sesión */}
-                <button className="nav-link btn btn-outline btn-login" onClick={handleLogoutClick}>
+                <a className="nav-link btn btn-outline btn-login" onClick={handleLogoutClick}>
                   Cerrar Sesión
-                </button>
+                </a>
               </li>
             </ul>
           </div>

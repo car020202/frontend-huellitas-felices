@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../Navbar/NavbarLogiado";
-import Footer from "../Footer/Footer"
+import Footer from "../Footer/Footer";
 import "./Dashboard.css";
 import dogImage from "../assets/perritohome.png"; // Imagen del perro en el banner
 import backgroundShapes from "../assets/fondo.png"; // Imagen de formas detrás del perro
@@ -47,7 +47,7 @@ function Dashboard() {
             <p>Esté al tanto a las citas de su mascota</p>
           </div>
         </a>
-        
+
         <a href="/cliente/productos" className="card">
           <img src={productsImage} alt="Products" />
           <div className="card-text">
@@ -77,18 +77,18 @@ function Dashboard() {
           <div className="treatments-text">
             <h2>Tratamientos</h2>
             <p>Tratamientos disponibles en nuestra veterinaria.</p>
-            <a href="#go" className="treatment-go-button">
+            <a href="/cliente/tratamientos" className="treatment-go-button">
               Ir
             </a>
           </div>
         </div>
       </section>
 
-      <section className="contact-section">
-        <div className="contact-container">
-          <div className="contact-details">
-            <div className="contact-info">
-              <div className="contact-icon">
+      <section className="contact-sectionc">
+        <div className="contact-containerc">
+          <div className="contact-detailsc">
+            <div className="contact-infoc">
+              <div className="contact-iconc">
                 <img
                   src={locationIcon}
                   alt="Location Icon"
@@ -121,6 +121,19 @@ function Dashboard() {
         </div>
         <div className="contact-image">
           <img src={contactImage} alt="Dog" />
+        </div>
+      </section>
+      <section className="map-section">
+        <div className="map-container">
+          <iframe
+            title="Ubicación Huellitas Felices"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3877.7106763419596!2d-89.56495008465802!3d13.994508290539616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f62e9ed84fa9a5f%3A0x3b769120c1e90752!2s10a%20Avenida%20Sur%2C%20Santa%20Ana!5e0!3m2!1ses!2ssv!4v1630625889447!5m2!1ses!2ssv"
+            width="100%"
+            height="450"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+          ></iframe>
         </div>
       </section>
       <Footer />

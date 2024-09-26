@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom"; // Importamos el hook useNavigate
 import Navbar from "../Navbar/NavbarEmpleado";
-import "./Dashboard.css";
+import "./EmpleadoDashboard.css";
 import Footer from "../Footer/Footer";
 import dogImage from "../assets/perritohome.png"; // Imagen del perro en el banner
 import backgroundShapes from "../assets/fondo.png"; // Imagen de formas detrás del perro
@@ -9,6 +9,9 @@ import backgroundShapes from "../assets/fondo.png"; // Imagen de formas detrás 
 // Aquí importamos las imágenes de las cards
 import datingImage from "../assets/calendario.webp";
 import CrearCitaImage from "../assets/crearcita.webp";
+import Planilla from "../assets/planilla.jpg";
+import crearcliente from "../assets/sara.jpg";
+import agregarmascota from "../assets/planilla2.png";
 
 // Importamos las imágenes de los íconos para la sección de Contacto
 import locationIcon from "../assets/ubicacion_icon.svg";
@@ -40,7 +43,7 @@ function Dashboard() {
       <div className="cards">
         {/* Cada card ahora tiene un onClick para redirigir */}
         <div className="card" onClick={() => navigate("/empleado/agregar-cliente")}>
-          <img src={datingImage} alt="Crear-Cliente" />
+          <img src={crearcliente} alt="Crear-Cliente" />
           <div className="card-text">
             <h3>Crear Clientes</h3>
             <p>Crear Clientes </p>
@@ -48,7 +51,7 @@ function Dashboard() {
         </div>
 
         <div className="card" onClick={() => navigate("/empleado/agregar-mascota")}>
-          <img src={datingImage} alt="Agregar-Mascota" />
+          <img src={agregarmascota} alt="Agregar-Mascota" />
           <div className="card-text">
             <h3>Agregar Mascota</h3>
             <p>Agrega Mascotas a los Clientes </p>
@@ -70,13 +73,21 @@ function Dashboard() {
             <p>Crear una Nueva cita</p>
           </div>
         </div>
+
+        <div className="card" onClick={() => navigate("")}>
+          <img src={Planilla} alt="CrearCita" />
+          <div className="card-text">
+            <h3>Ver Planilla</h3>
+            <p>Ver tu planilla</p>
+          </div>
+        </div>
       </div>
 
-      <section className="contact-section">
-        <div className="contact-container">
-          <div className="contact-details">
-            <div className="contact-info">
-              <div className="contact-icon">
+      <section className="contact-sectionem">
+        <div className="contact-containerem">
+          <div className="contact-detailsem">
+            <div className="contact-infoem">
+              <div className="contact-iconem">
                 <img
                   src={locationIcon}
                   alt="Location Icon"

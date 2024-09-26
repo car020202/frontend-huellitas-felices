@@ -1,27 +1,28 @@
 .background {
-    position: relative;
-    min-height: 100vh; /* Asegura que cubra toda la pantalla */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* Desactiva el scroll en toda la página */
-  }
-  
-  .background::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('../assets/backgroundCalendario.jpeg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.77;
-    z-index: -1;
-  }
-  
-  /* Modal de éxito */
+  position: relative;
+  min-height: 100vh; /* Asegura que cubra toda la pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Desactiva el scroll en toda la página */
+  padding: 20px;
+}
+
+.background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../assets/backgroundCalendario.jpeg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.77;
+  z-index: -1;
+}
+
+/* Modal de éxito */
 .modal-success {
   position: fixed;
   top: 20%;
@@ -35,23 +36,31 @@
   font-size: 18px;
   z-index: 1000;
   text-align: center;
+  width: 100%;
+  max-width: 400px; /* Limita el tamaño del modal en pantallas grandes */
 }
 
-
+/* Estilo general del contenedor */
 .overlay-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  padding: 20px;
 }
 
-.form-container {
+/* Contenedor del formulario */
+.form-containeradmin {
   background-color: white;
+  width: 100%; /* Para pantallas pequeñas */
+  max-width: 800px; /* Limita el tamaño del formulario en pantallas grandes */
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 20px; /* Añade margen a los lados en pantallas pequeñas */
 }
 
+/* Estilo del botón */
 .btn-submit {
   background-color: #4CAF50;
   color: white;
@@ -59,8 +68,39 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  width: 100%; /* El botón ocupa todo el ancho en pantallas pequeñas */
+  max-width: 100%; /* En pantallas grandes, el botón tiene un tamaño limitado */
 }
 
 .btn-submit:hover {
   background-color: #45a049;
+}
+
+/* Media queries para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .form-containeradmin {
+      max-width: 600px; /* Reduce el ancho máximo del formulario */
+      padding: 20px; /* Reduce el padding interno */
+  }
+
+  .modal-success {
+      padding: 15px; /* Ajusta el padding del modal */
+      font-size: 16px; /* Reduce ligeramente el tamaño de la fuente */
+  }
+}
+
+@media (max-width: 576px) {
+  .form-containeradmin {
+      max-width: 100%; /* El formulario ocupa todo el ancho disponible */
+      padding: 15px; /* Reduce el padding en dispositivos móviles */
+  }
+
+  .modal-success {
+      padding: 10px; /* Ajusta aún más el padding del modal */
+      font-size: 14px; /* Reduce más el tamaño de la fuente en pantallas pequeñas */
+  }
+
+  .btn-submit {
+      width: 100%; /* El botón ocupa todo el ancho en pantallas pequeñas */
+  }
 }

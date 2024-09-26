@@ -102,7 +102,7 @@ const AgregarCliente = () => {
                 />
               </div>
 
-              <button type="submit" className="btn-submit">
+              <button type="submit" className="btn-guardar">
                 Agregar Cliente
               </button>
             </form>

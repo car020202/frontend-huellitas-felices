@@ -66,7 +66,7 @@ const CrearUsuario = () => {
       <Navbar />
       <div className="background">
         <div className="overlay-container">
-          <div className="form-container">
+          <div className="form-containeradmin">
             <h1>Agregar Usuario/Empleado</h1>
             {mensaje && <p>{mensaje}</p>}
             <form onSubmit={handleSubmit}>

@@ -1,11 +1,11 @@
 .background {
   position: relative;
-  min-height: 100vh; /* Asegura que cubra toda la pantalla */
+  min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  overflow: hidden; /* Desactiva el scroll en toda la página */
-  padding: 20px 0; /* Añadir espacio en la parte superior e inferior */
+  align-items: flex-start;
+  overflow: hidden;
+  padding: 20px 0;
 }
 
 .background::before {
@@ -23,24 +23,39 @@
 }
 
 .overlay-factura {
+  position: relative;
   background-color: rgba(230, 243, 255, 0.77);
-  padding: 1.5rem; /* Más espacio en los bordes */
+  padding: 1.5rem;
   border-radius: 20px;
   width: 100%;
-  max-width: 900px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Agregar sombra para profundidad */
+  max-width: 1400px;
+  max-height: 80vh;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centramos el contenido */
 }
 
 h1.text-center {
-  margin-bottom: 40px; /* Espacio extra para despejar el título */
+  margin-bottom: 20px;
+  font-size: 2rem; /* Ajustar tamaño de fuente */
+}
+
+.list-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .list-group-item {
+  width: 800px;
   padding: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem; /* Añadir espacio entre los elementos del carrito */
+  margin-bottom: 1rem;
+  transition: width 0.3s ease; /* Transición para que el cambio sea suave */
 }
 
 .product-content {
@@ -49,27 +64,54 @@ h1.text-center {
 }
 
 .product-img {
-  width: 100px;
-  height: 100px;
+  width: 175px;
+  height: 175px;
   object-fit: cover;
   margin-right: 15px;
 }
 
+.precio-yeliminar {
+  display: flex; /* Usar flexbox para organizar los elementos */
+  justify-content: flex-end; /* Alinea el contenido hacia la derecha */
+  align-items: center; /* Alinea los elementos verticalmente en el centro */
+  gap: 10px; /* Añade espacio entre el precio y el botón */
+}
+
+.btn-elmpro {
+  margin-left: 10px; /* O puedes ajustar el valor del margen según tus necesidades */
+}
+
 .product-info {
+  font-size: 1.4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: left;
 }
 
-.total-section {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-top: 40px; /* Añadir espacio antes del total */
+/* Nueva clase para agrupar los productos y el contenedor PayPal */
+.productos-y-paypal {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  gap: 20px; /* Espaciado entre los productos y el PayPal */
 }
 
-.text-center {
-  margin-top: 40px; /* Espacio antes del botón */
+.lista-productos {
+  flex: 1; /* Ocupa todo el espacio disponible a la izquierda */
+}
+
+/* Sección de PayPal alineada a la derecha */
+.paypalcontainer {
+  flex-shrink: 0;
+  width: 300px;
+  align-self: flex-start;
+}
+
+.badge {
+  font-size: 1.6rem;
+  font-weight: bold;
 }
 
 .btnpago {
@@ -82,11 +124,42 @@ h1.text-center {
 .btnpago:hover {
   background-color: #FFC700;
 }
+.btn-elmpro {
+  margin-right: 20px; /* Cambia el valor según el margen que desees */
+}
 
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .list-group-item {
+    width: 100%; /* Asegurar que el ancho ocupe todo el contenedor */
+    flex-direction: column; /* Apilar verticalmente en pantallas pequeñas */
+    align-items: flex-start; /* Alinear a la izquierda */
+  }
+
+  .product-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinear los elementos verticalmente */
+  }
+
+  .product-img {
+    width: 125px; /* Ajustar tamaño de imagen en pantallas pequeñas */
+    height: 125px;
+  }
+
+  .product-info {
+    font-size: 1.2rem; /* Reducir tamaño del texto */
+    margin-top: 10px;
+  }
+}
+
+/* Media query para pantallas muy pequeñas (ej: móviles) */
 @media (max-width: 576px) {
   .product-img {
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
   }
 
   .list-group-item {
@@ -94,10 +167,14 @@ h1.text-center {
   }
 
   .badge {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
   }
 
   .btnpago {
     width: 100%;
+  }
+
+  .productos-y-paypal {
+    flex-direction: column; /* En pantallas pequeñas, poner los productos y PayPal uno debajo del otro */
   }
 }

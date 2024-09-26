@@ -203,7 +203,7 @@ const FormularioCita = () => {
 
               {/* Botones */}
               <div className="button-container">
-                <button type="submit" className="btn-submit">
+                <button type="submit" className="btnguardarce">
                   Guardar Cita
                 </button>
                 <button type="button" className="btn-cancel" onClick={() => navigate("/empleado/dashboard")}>

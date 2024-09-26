@@ -47,33 +47,7 @@ function EmployeeDashboard() {
         </div>
       </section>
 
-      <section className="contact-section">
-        <div className="contact-container">
-          <div className="contact-details">
-            <div className="contact-info">
-              <div className="contact-icon">
-                <img src={locationIcon} alt="Location Icon" className="contact-icon-image" />
-              </div>
-              <p>10a avenida sur y 23a Calle Poniente, Santa Ana</p>
-            </div>
-            <div className="contact-info">
-              <div className="contact-icon">
-                <img src={emailIcon} alt="Email Icon" className="contact-icon-image" />
-              </div>
-              <p>huellitasfelices@c.com</p>
-            </div>
-            <div className="contact-info">
-              <div className="contact-icon">
-                <img src={phoneIcon} alt="Phone Icon" className="contact-icon-image" />
-              </div>
-              <p>7777-7777</p>
-            </div>
-          </div>
-        </div>
-        <div className="contact-image">
-          <img src={contactImage} alt="Dog" />
-        </div>
-      </section>
+     
 
       <Footer />
     </>

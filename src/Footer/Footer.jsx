@@ -4,7 +4,7 @@ import './Footer.css'; // Importamos el archivo CSS para personalizar los estilo
 function Footer() {
   return (
     <footer className="footer text-white pt-5 pb-4">
-      <div className="container">
+      <div className="containerf">
         <div className="row">
           {/* Columna de información de contacto */}
           <div className="col-md-4">

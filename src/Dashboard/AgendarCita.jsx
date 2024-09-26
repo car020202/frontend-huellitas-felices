@@ -205,7 +205,7 @@ const AgendarCita = () => {
 
               {/* Botones */}
               <div className="button-container">
-                <button type="submit" className="btn-submit">
+                <button type="button" className="btn-guardarcc">
                   Guardar Cita
                 </button>
                 <button type="button" className="btn-cancel" onClick={() => navigate("/dashboard")}>
