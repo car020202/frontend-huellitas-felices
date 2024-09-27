@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../Navbar/NavbarEmployee";
 import Footer from "../Footer/Footer";
-import axios from "axios"; // Importamos axios para hacer las solicitudes
-import "./PlanillaForm.css"; // Cambiamos el nombre del archivo CSS
+import axios from "axios";
+import "./PlanillaForm.css"; 
 
 function CrearPlanilla() {
   const [formData, setFormData] = useState({
@@ -15,13 +15,13 @@ function CrearPlanilla() {
     monto_total: "",
     metodo_pago: "",
     estado_pago: "",
-    id_usuario: "",
+    id_usuario: "", // Para el empleado seleccionado
   });
 
-  const [mensaje, setMensaje] = useState(""); // Para mostrar mensajes de éxito/error
-  const [usuarios, setUsuarios] = useState([]); // Para almacenar la lista de usuarios
+  const [mensaje, setMensaje] = useState(""); 
+  const [usuarios, setUsuarios] = useState([]); 
 
-  // Función para manejar los cambios en los inputs
+  // Maneja los cambios en los inputs
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -29,11 +29,11 @@ function CrearPlanilla() {
     });
   };
 
-  // Función para manejar el envío del formulario
+  // Maneja el envío del formulario
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/planillas/create", formData);
+      const response = await axios.post("http://localhost:3000/planilla/create", formData);
       if (response.status === 201) {
         setMensaje("Planilla creada con éxito.");
       }
@@ -43,18 +43,19 @@ function CrearPlanilla() {
     }
   };
 
-  // Obtener la lista de usuarios con roles 1, 2, y 4 cuando el componente se monte
-  useEffect(() => {
-    const obtenerUsuarios = async () => {
-      try {
-        const response = await axios.get("http://localhost:3000/usuarios/roles");
-        setUsuarios(response.data); // Guardamos los usuarios en el estado
-      } catch (error) {
-        console.error("Error al obtener los usuarios:", error);
-      }
-    };
-    obtenerUsuarios();
-  }, []);
+ 
+useEffect(() => {
+  const obtenerUsuarios = async () => {
+    try {
+      const response = await axios.get("http://localhost:3000/usuario/roles");  // Asegúrate de que esta URL esté correcta
+      setUsuarios(response.data);  // Guarda los usuarios obtenidos en el estado
+    } catch (error) {
+      console.error("Error al obtener los usuarios:", error);
+    }
+  };
+  obtenerUsuarios();
+}, []);
+
 
   return (
     <>

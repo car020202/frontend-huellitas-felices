@@ -178,3 +178,19 @@ h1.text-center {
     flex-direction: column; /* En pantallas pequeñas, poner los productos y PayPal uno debajo del otro */
   }
 }
+
+
+
+.compra-exitosa {
+  margin-top: 50px;
+}
+
+.compra-exitosa h2 {
+  color: #28a745;
+}
+
+.success-check {
+  width: 100px;
+  height: 100px;
+  margin-top: 20px;
+}

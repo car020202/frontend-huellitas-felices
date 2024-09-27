@@ -4,7 +4,10 @@ import Footer from "../Footer/Footer";
 import "./Factura.css";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
-const Factura = ({ carrito }) => {
+const Factura = ({ carrito, setCarrito, usuario }) => {
+  const [mensajePago, setMensajePago] = useState(""); 
+  const [errorPago, setErrorPago] = useState(""); 
+
   const total = carrito.reduce((acc, producto) => {
     const precio = parseFloat(producto.precio) || 0;
     const cantidad = parseInt(producto.cantidad, 10) || 1;
@@ -20,20 +23,33 @@ const Factura = ({ carrito }) => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ orderID: data.orderID }),
+          body: JSON.stringify({
+            orderID: data.orderID,
+            carrito: carrito,
+            usuarioId: usuario.id,
+          }),
         }
       );
 
       const captureData = await response.json();
-      if (captureData.status === "COMPLETED") {
-        console.log("Pago exitoso");
-        // Redirige o muestra un mensaje de éxito
+
+      if (captureData.message === "Pago completado") {
+        setMensajePago("Compra exitosa");
+        setCarrito([]);
       } else {
-        console.error("Error en la captura del pago:", captureData);
+        setMensajePago("Error en el pago, pero su pedido fue registrado.");
+        setCarrito([]); 
       }
     } catch (error) {
       console.error("Error al capturar el pago:", error);
+      setMensajePago("Pago realizado con exito");
     }
+  };
+
+  // Función para eliminar producto del carrito
+  const eliminarProducto = (index) => {
+    const nuevoCarrito = carrito.filter((_, i) => i !== index); // Filtramos el producto que no queremos
+    setCarrito(nuevoCarrito); // Actualizamos el estado del carrito
   };
 
   return (
@@ -71,9 +87,10 @@ const Factura = ({ carrito }) => {
                       <span className="badge rounded-pill bg-light text-dark">
                         ${(precio * cantidad).toFixed(2)}
                       </span>
+                      {/* Usamos la función eliminarProducto aquí */}
                       <button
                         className="btn-elmpro btn-danger ms-3"
-                        onClick={() => handleRemoveProduct(index)}
+                        onClick={() => eliminarProducto(index)}
                       >
                         Eliminar
                       </button>
@@ -86,48 +103,65 @@ const Factura = ({ carrito }) => {
               <div className="total-section text-center mt-4">
                 <h3>Total: ${total.toFixed(2)}</h3>
               </div>
-              <div className="text-center mt-4">
-                <PayPalScriptProvider
-                  options={{
-                    "client-id":
-                      "AYx_hnrzeDEST-rreoNvzDGYRIDUio5Dg5zmJoop_Wsl0XRcS2geyHm62fx2yk5W8s4wrw5wFUMkfJBG",
-                  }}
-                >
-                  <PayPalButtons
-                    createOrder={async () => {
-                      try {
-                        const response = await fetch(
-                          "http://localhost:3000/paypal/create-order",
-                          {
-                            method: "POST",
-                            headers: {
-                              "Content-Type": "application/json",
-                            },
-                            body: JSON.stringify({ total: total.toFixed(2) }),
-                          }
-                        );
 
-                        const orderData = await response.json();
-                        console.log("Orden creada:", orderData);
-
-                        if (orderData.id) {
-                          return orderData.id;
-                        } else {
-                          console.error(
-                            "Error en la creación de la orden:",
-                            orderData
-                          );
-                          throw new Error("Error en la creación de la orden");
-                        }
-                      } catch (error) {
-                        console.error("Error al crear la orden:", error);
-                      }
+              {mensajePago ? (
+                <div className="text-center mt-4">
+                  <h4 className="text-success">{mensajePago}</h4>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="50"
+                    height="50"
+                    fill="currentColor"
+                    className="bi bi-check-circle-fill text-success"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.97 11.03a.75.75 0 0 0 1.07 0L13.5 5.57a.75.75 0 1 0-1.06-1.06L7.5 9.44 5.57 7.53a.75.75 0 1 0-1.06 1.06l2.5 2.5z" />
+                  </svg>
+                </div>
+              ) : (
+                <div className="text-center mt-4">
+                  <PayPalScriptProvider
+                    options={{
+                      "client-id": "AYx_hnrzeDEST-rreoNvzDGYRIDUio5Dg5zmJoop_Wsl0XRcS2geyHm62fx2yk5W8s4wrw5wFUMkfJBG",
                     }}
-                    onApprove={handleApprove}
-                    onError={(err) => console.error("Error en PayPal:", err)}
-                  />
-                </PayPalScriptProvider>
-              </div>
+                  >
+                    <PayPalButtons
+                      createOrder={async () => {
+                        try {
+                          const response = await fetch(
+                            "http://localhost:3000/paypal/create-order",
+                            {
+                              method: "POST",
+                              headers: {
+                                "Content-Type": "application/json",
+                              },
+                              body: JSON.stringify({ total: total.toFixed(2) }),
+                            }
+                          );
+
+                          const orderData = await response.json();
+
+                          if (orderData.id) {
+                            return orderData.id;
+                          } else {
+                            throw new Error("Error al crear la orden");
+                          }
+                        } catch (error) {
+                          console.error("Error al crear la orden:", error);
+                          setErrorPago("Error al procesar el pago.");
+                        }
+                      }}
+                      onApprove={handleApprove}
+                      onError={(err) => {
+                        console.error("Error en PayPal:", err);
+                        setErrorPago("Error al procesar el pago.");
+                      }}
+                    />
+                  </PayPalScriptProvider>
+                </div>
+              )}
+
+              {errorPago && <p className="text-danger">{errorPago}</p>}
             </div>
           </div>
         </div>

@@ -2,38 +2,21 @@ import React, { useState, useEffect } from "react";
 import "./AgendarCita.css";
 import Navbar from "../Navbar/NavbarLogiado";
 import Footer from "../Footer/Footer";
-import imagenCita from "../assets/traetmeantsf.png"; // Imagen
-import axios from "axios"; // Para manejar peticiones al backend
+import imagenCita from "../assets/traetmeantsf.png";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const AgendarCita = () => {
-  const [clientes, setClientes] = useState([]);
+const AgendarCita = ({ user }) => {  // Recibe los datos del usuario logueado desde ProtectedRoute
   const [pacientes, setPacientes] = useState([]);
   const [doctores, setDoctores] = useState([]);
-  const [clienteSeleccionado, setClienteSeleccionado] = useState("");
   const [pacienteSeleccionado, setPacienteSeleccionado] = useState("");
   const [doctorSeleccionado, setDoctorSeleccionado] = useState("");
   const [fecha, setFecha] = useState("");
   const [hora, setHora] = useState("");
   const [mensaje, setMensaje] = useState("");
-  const [error, setError] = useState(""); // Para manejar errores de validación
-
+  const [error, setError] = useState(""); 
   const navigate = useNavigate();
 
-  // Obtener los clientes (usuarios con rol 3)
-  useEffect(() => {
-    const fetchClientes = async () => {
-      try {
-        const response = await axios.get("http://localhost:3000/usuario/clientes");
-        setClientes(response.data);
-      } catch (error) {
-        console.error("Error fetching clientes:", error);
-      }
-    };
-    fetchClientes();
-  }, []);
-
-  // Obtener los doctores (usuarios con rol 2)
   useEffect(() => {
     const fetchDoctores = async () => {
       try {
@@ -46,12 +29,19 @@ const AgendarCita = () => {
     fetchDoctores();
   }, []);
 
-  // Obtener pacientes cuando se selecciona un cliente
+  // Obtener los pacientes del usuario logueado
   useEffect(() => {
-    if (clienteSeleccionado) {
+    if (user && user.id) {
       const fetchPacientes = async () => {
         try {
-          const response = await axios.get(`http://localhost:3000/pacientes/cliente/${clienteSeleccionado}`);
+          const response = await axios.get(
+            `http://localhost:3000/pacientes/cliente/${user.id}`,  // Usa el ID del usuario logueado
+            {
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`,  // Enviar el token en los headers
+              },
+            }
+          );
           setPacientes(response.data);
         } catch (error) {
           console.error("Error fetching pacientes:", error);
@@ -59,55 +49,33 @@ const AgendarCita = () => {
       };
       fetchPacientes();
     }
-  }, [clienteSeleccionado]);
+  }, [user]);
 
-  // Validar la fecha y la hora
-  const validarFechaYHora = () => {
-    const fechaActual = new Date();
-    const fechaSeleccionada = new Date(fecha);
-
-    // Validación para que la fecha sea mayor que la fecha actual
-    if (fechaSeleccionada <= fechaActual) {
-      setError("La fecha seleccionada debe ser posterior a la fecha actual.");
-      return false;
-    }
-
-    // Validación para que la hora esté entre las 10:00 AM y las 8:00 PM
-    const horaSeleccionada = parseInt(hora.split(":")[0], 10);
-    if (horaSeleccionada < 10 || horaSeleccionada > 20) {
-      setError("La hora debe estar entre las 10:00 AM y las 8:00 PM.");
-      return false;
-    }
-
-    setError(""); // Limpiar errores si las validaciones pasan
-    return true;
-  };
-
-  // Manejar el envío del formulario
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Verificar que la fecha y la hora sean válidas antes de enviar
-    if (!validarFechaYHora()) {
-      return;
-    }
-
     try {
-      const response = await axios.post("http://localhost:3000/citas", {
-        cliente: clienteSeleccionado,
-        paciente: pacienteSeleccionado,
-        doctor: doctorSeleccionado,
-        fecha,
-        hora,
-      });
+      const response = await axios.post(
+        "http://localhost:3000/citas",
+        {
+          cliente: user.id,  // Usar el ID del cliente logueado
+          paciente: pacienteSeleccionado,
+          doctor: doctorSeleccionado,
+          fecha,
+          hora,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,  // Token en headers
+          },
+        }
+      );
 
       if (response.status === 201) {
         setMensaje("Cita creada con éxito.");
-
-        // Mostrar el mensaje durante 2 segundos y luego redirigir
         setTimeout(() => {
-          navigate("/dashboard"); // Redirigir al dashboard después de 2 segundos
-        }, 2000); // 2 segundos
+          navigate("/dashboard");
+        }, 2000);
       } else {
         setMensaje("Error al crear la cita.");
       }
@@ -128,24 +96,17 @@ const AgendarCita = () => {
           <div className="form-section">
             <h1>Agendar Cita</h1>
             {mensaje && <p>{mensaje}</p>}
-            {error && <p className="error-message">{error}</p>} {/* Mostrar error si existe */}
+            {error && <p className="error-message">{error}</p>}
             <form className="form" onSubmit={handleSubmit}>
-              {/* Cliente */}
+              {/* Mostrar el nombre del cliente logueado */}
               <label htmlFor="cliente">Cliente:</label>
-              <select
+              <input
                 id="cliente"
                 name="cliente"
-                value={clienteSeleccionado}
-                onChange={(e) => setClienteSeleccionado(e.target.value)}
-                required
-              >
-                <option value="">Seleccione un cliente</option>
-                {clientes.map((cliente) => (
-                  <option key={cliente.id_usuario} value={cliente.id_usuario}>
-                    {cliente.nombre}
-                  </option>
-                ))}
-              </select>
+                value={user ? user.nombre : ""}
+                readOnly
+                className="form-control"
+              />
 
               {/* Paciente */}
               <label htmlFor="paciente">Paciente:</label>
@@ -181,7 +142,6 @@ const AgendarCita = () => {
                 ))}
               </select>
 
-              {/* Fecha */}
               <label htmlFor="fecha">Fecha:</label>
               <input
                 type="date"
@@ -192,7 +152,6 @@ const AgendarCita = () => {
                 required
               />
 
-              {/* Hora */}
               <label htmlFor="hora">Hora:</label>
               <input
                 type="time"
@@ -203,12 +162,15 @@ const AgendarCita = () => {
                 required
               />
 
-              {/* Botones */}
               <div className="button-container">
-                <button type="button" className="btn-guardarcc">
+                <button type="submit" className="btn-guardarcc">
                   Guardar Cita
                 </button>
-                <button type="button" className="btn-cancel" onClick={() => navigate("/dashboard")}>
+                <button
+                  type="button"
+                  className="btn-cancel"
+                  onClick={() => navigate("/dashboard")}
+                >
                   Cancelar
                 </button>
               </div>
