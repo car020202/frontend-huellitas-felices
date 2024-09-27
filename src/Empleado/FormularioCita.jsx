@@ -20,38 +20,56 @@ const FormularioCita = () => {
 
   const navigate = useNavigate();
 
+  // Obtener el token JWT desde localStorage o sessionStorage
+  const token = localStorage.getItem("token"); // Asegúrate de que el token esté guardado en el localStorage
+
   // Obtener los clientes (usuarios con rol 3)
   useEffect(() => {
     const fetchClientes = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/usuario/clientes");
+        const response = await axios.get("http://localhost:3000/usuario/clientes", {
+          headers: {
+            Authorization: `Bearer ${token}`, // Aquí se agrega el token en los headers
+          },
+        });
         setClientes(response.data);
       } catch (error) {
         console.error("Error fetching clientes:", error);
       }
     };
     fetchClientes();
-  }, []);
+  }, [token]);
 
   // Obtener los doctores (usuarios con rol 2)
   useEffect(() => {
     const fetchDoctores = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/usuario/doctores");
+        const response = await axios.get("http://localhost:3000/usuario/doctores", {
+          headers: {
+            Authorization: `Bearer ${token}`, // Aquí se agrega el token en los headers
+          },
+        });
         setDoctores(response.data);
       } catch (error) {
         console.error("Error fetching doctores:", error);
       }
     };
     fetchDoctores();
-  }, []);
+  }, [token]);
 
   // Obtener pacientes cuando se selecciona un cliente
   useEffect(() => {
     if (clienteSeleccionado) {
       const fetchPacientes = async () => {
         try {
-          const response = await axios.get(`http://localhost:3000/pacientes/cliente/${clienteSeleccionado}`);
+          const response = await axios.get(
+            `http://localhost:3000/pacientes/cliente/${clienteSeleccionado}`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`, // Aquí se agrega el token en los headers
+              },
+            }
+          );
           setPacientes(response.data);
         } catch (error) {
           console.error("Error fetching pacientes:", error);
@@ -59,7 +77,7 @@ const FormularioCita = () => {
       };
       fetchPacientes();
     }
-  }, [clienteSeleccionado]);
+  }, [clienteSeleccionado, token]);
 
   // Validar la fecha y la hora
   const validarFechaYHora = () => {
@@ -93,13 +111,21 @@ const FormularioCita = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:3000/citas", {
-        cliente: clienteSeleccionado,
-        paciente: pacienteSeleccionado,
-        doctor: doctorSeleccionado,
-        fecha,
-        hora,
-      });
+      const response = await axios.post(
+        "http://localhost:3000/citas",
+        {
+          cliente: clienteSeleccionado,
+          paciente: pacienteSeleccionado,
+          doctor: doctorSeleccionado,
+          fecha,
+          hora,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // Aquí se agrega el token en los headers
+          },
+        }
+      );
 
       if (response.status === 201) {
         setMensaje("Cita creada con éxito.");
@@ -115,7 +141,7 @@ const FormularioCita = () => {
 
   return (
     <>
-       <header>
+      <header>
         <Navbar />
       </header>
       <div className="background">

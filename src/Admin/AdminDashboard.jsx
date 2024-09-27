@@ -49,7 +49,7 @@ function Dashboard() {
           <img src={consultationsImage} alt="Consultations" />
           <div className="card-text">
             <h3>Crear usuarios</h3>
-            <p>Be in control of your pet's or pets' inquiries.</p>
+            <p>Crea los usuarios/empleados</p>
           </div>
         </div>
         

@@ -1,40 +1,54 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../Navbar/NavbarEmployee";
+import Navbar from "../Navbar/NavbarEmpleado";
 import Footer from "../Footer/Footer";
 import jsPDF from "jspdf";
 import "jspdf-autotable"; // Importar el plugin autoTable
+import axios from "axios"; // Importar Axios para las solicitudes HTTP
 import "./VerPlanillaEmpleado.css";
 
 function VerPlanillaEmpleado() {
   const [payrollData, setPayrollData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const token = localStorage.getItem("token"); // Obtener el token almacenado
+
+  // Decodificar el token para obtener el ID del usuario
+  const decodeToken = (token) => {
+    try {
+      const payload = JSON.parse(atob(token.split(".")[1]));
+      return payload;
+    } catch (error) {
+      console.error("Error al decodificar el token", error);
+      return null;
+    }
+  };
+
+  const userData = decodeToken(token); // Decodificar el token
 
   useEffect(() => {
-    const fetchPayrollData = async () => {
-      const data = [
-        {
-          id: 1,
-          employeeName: "Juan Pérez",
-          paymentDate: "01/09/2024",
-          startPeriod: "01/08/2024",
-          endPeriod: "31/08/2024",
-          baseSalary: 1000,
-          bonuses: 200,
-          deductions: 50,
-          totalAmount: 1150,
-          paymentMethod: "Transferencia",
-          status: "Pagado",
-        },
-      ];
+    if (!userData) {
+      console.error("No se pudo decodificar el token o no hay token.");
+      setLoading(false);
+      return;
+    }
 
-      setTimeout(() => {
-        setPayrollData(data);
+    const fetchPayrollData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3000/planilla/usuario/${userData.id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`, // Incluir el token en los headers
+          },
+        });
+        setPayrollData(response.data);
         setLoading(false);
-      }, 1000);
+      } catch (error) {
+        console.error("Error fetching payroll data:", error);
+        setLoading(false);
+      }
     };
+    
 
     fetchPayrollData();
-  }, []);
+  }, [userData, token]);
 
   // Función para generar y descargar el PDF para una planilla específica
   const downloadPDF = (item) => {
@@ -42,10 +56,8 @@ function VerPlanillaEmpleado() {
     doc.setFontSize(12);
     doc.text("Planilla de Empleados", 14, 22);
 
-    // Encabezados de la tabla
     const headers = [
       "ID",
-      "Nombre del Empleado",
       "Fecha de Pago",
       "Periodo Inicial",
       "Periodo Final",
@@ -54,33 +66,30 @@ function VerPlanillaEmpleado() {
       "Deducciones",
       "Monto Total",
       "Método de Pago",
-      "Estado",
+      "Estado de Pago",
     ];
 
-    // Datos de la planilla
     const rowData = [
-      item.id,
-      item.employeeName,
-      item.paymentDate,
-      item.startPeriod,
-      item.endPeriod,
-      item.baseSalary,
-      item.bonuses,
-      item.deductions,
-      item.totalAmount,
-      item.paymentMethod,
-      item.status,
+      item.id_planilla,
+      item.fecha_pago,
+      item.periodo_inicial,
+      item.periodo_fin,
+      item.salario_base,
+      item.bonificaciones,
+      item.deducciones,
+      item.monto_total,
+      item.metodo_pago,
+      item.estado_pago,
     ];
 
-    // Usar autoTable para agregar la tabla
     doc.autoTable({
       head: [headers],
       body: [rowData],
-      startY: 30, // Posición vertical para la tabla
-      theme: "grid", // Estilo de la tabla (puede ser 'striped', 'grid', etc.)
+      startY: 30,
+      theme: "grid",
       headStyles: {
-        fillColor: [255, 245, 221], // Color de fondo para el encabezado
-        textColor: [0, 0, 0], // Color del texto (negro)
+        fillColor: [255, 245, 221],
+        textColor: [0, 0, 0],
       },
       styles: {
         cellWidth: "auto",
@@ -89,8 +98,7 @@ function VerPlanillaEmpleado() {
       margin: { top: 20 },
     });
 
-    // Descargar el PDF
-    doc.save(`planilla_empleado_${item.id}.pdf`);
+    doc.save(`planilla_empleado_${item.id_planilla}.pdf`);
   };
 
   return (
@@ -106,7 +114,6 @@ function VerPlanillaEmpleado() {
               <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Nombre del Empleado</th>
                   <th>Fecha de Pago</th>
                   <th>Periodo Inicial</th>
                   <th>Periodo Final</th>
@@ -122,18 +129,17 @@ function VerPlanillaEmpleado() {
               <tbody>
                 {payrollData.length > 0 ? (
                   payrollData.map((item) => (
-                    <tr key={item.id}>
-                      <td>{item.id}</td>
-                      <td>{item.employeeName}</td>
-                      <td>{item.paymentDate}</td>
-                      <td>{item.startPeriod}</td>
-                      <td>{item.endPeriod}</td>
-                      <td>${item.baseSalary}</td>
-                      <td>${item.bonuses}</td>
-                      <td>${item.deductions}</td>
-                      <td>${item.totalAmount}</td>
-                      <td>{item.paymentMethod}</td>
-                      <td>{item.status}</td>
+                    <tr key={item.id_planilla}>
+                      <td>{item.id_planilla}</td>
+                      <td>{new Date(item.fecha_pago).toLocaleDateString()}</td>
+                      <td>{new Date(item.periodo_inicial).toLocaleDateString()}</td>
+                      <td>{new Date(item.periodo_fin).toLocaleDateString()}</td>
+                      <td>${item.salario_base}</td>
+                      <td>${item.bonificaciones}</td>
+                      <td>${item.deducciones}</td>
+                      <td>${item.monto_total}</td>
+                      <td>{item.metodo_pago}</td>
+                      <td>{item.estado_pago}</td>
                       <td>
                         <button
                           onClick={() => downloadPDF(item)}

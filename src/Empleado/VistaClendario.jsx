@@ -19,12 +19,17 @@ const VistaCalendarioCitas = () => {
 
   const fetchCitasPorFecha = async (fechaSeleccionada) => {
     try {
-      const response = await axios.get(`http://localhost:3000/citas/fecha/${fechaSeleccionada}`);
+      const response = await axios.get(`http://localhost:3000/citas/fecha/${fechaSeleccionada}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`, // Agregar token para empleados
+        },
+      });
       setCitas(response.data);
     } catch (error) {
       console.error("Error fetching citas:", error);
     }
   };
+  
 
   useEffect(() => {
     const fechaSeleccionada = formatDate(value);
@@ -34,24 +39,36 @@ const VistaCalendarioCitas = () => {
   // Manejar el botón de finalizar cita
   const handleFinalizarCita = async (idCita) => {
     try {
-      await axios.put(`http://localhost:3000/citas/${idCita}`, { estado: 'realizada' });
+      await axios.put(`http://localhost:3000/citas/${idCita}`, 
+        { estado: 'realizada' },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`, // Enviar token en el header
+          },
+        }
+      );
       const fechaSeleccionada = formatDate(value);
       fetchCitasPorFecha(fechaSeleccionada); // Recargar las citas después de actualizar
     } catch (error) {
       console.error("Error finalizando la cita:", error);
     }
   };
+  
 
-  // Manejar el botón de eliminar cita
   const handleCancelarCita = async (idCita) => {
     try {
-      await axios.delete(`http://localhost:3000/citas/${idCita}`);
+      await axios.delete(`http://localhost:3000/citas/${idCita}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`, // Enviar token en el header
+        },
+      });
       const fechaSeleccionada = formatDate(value);
       fetchCitasPorFecha(fechaSeleccionada); // Recargar las citas después de eliminar
     } catch (error) {
       console.error("Error cancelando la cita:", error);
     }
   };
+  
 
   return (
     <>
