@@ -60,7 +60,7 @@ useEffect(() => {
   return (
     <>
       <Navbar />
-      <div className="form-background">
+      <div className="form-backgroundcd">
         <div className="container d-flex justify-content-center align-items-center">
           <div className="planilla-card p-5">
             <div className=" text-center">

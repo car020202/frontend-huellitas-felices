@@ -1,0 +1,102 @@
+.ver-planilla-section {
+    padding: 2rem;
+    background-color: #E5F3FF;
+  }
+  
+  .ver-planilla-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.9); /* Color de fondo con mayor transparencia */
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    overflow-x: auto; /* Hacer que la tabla sea desplazable horizontalmente */
+  }
+  
+  .ver-planilla-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem; /* Espacio arriba de la tabla */
+    min-width: 1000px; /* Asegurar que la tabla tenga un ancho mínimo para que no se compacte en pantallas pequeñas */
+  }
+  
+  .ver-planilla-table th,
+  .ver-planilla-table td {
+    border: 1px solid #ddd;
+    padding: 15px; /* Incrementar padding para mayor espacio */
+    text-align: center;
+    font-size: 14px; /* Tamaño de texto un poco más grande */
+  }
+  
+  .ver-planilla-table th {
+    background-color: #DCEEFF;
+    color: #333;
+    font-weight: bold;
+    font-size: 15px;
+  }
+  
+  .ver-planilla-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .ver-planilla-table tr:hover {
+    background-color: #f1f1f1;
+    transition: background-color 0.3s ease; /* Transición suave al pasar el mouse */
+  }
+  
+  /* Estilo de los títulos */
+  h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  /* Espacio adicional en la parte inferior de la tabla */
+  .ver-planilla-table {
+    margin-bottom: 2rem; /* Espacio abajo de la tabla */
+  }
+  
+  /* Ajustes para pantallas pequeñas */
+  @media screen and (max-width: 1024px) {
+    .ver-planilla-container {
+      padding: 1rem;
+    }
+  
+    h2 {
+      font-size: 22px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .ver-planilla-container {
+      padding: 1rem;
+    }
+  
+    .ver-planilla-table {
+      min-width: 600px; /* Aseguramos que la tabla tenga al menos este tamaño, y que sea desplazable horizontalmente si es necesario */
+    }
+  
+    .ver-planilla-table th,
+    .ver-planilla-table td {
+      padding: 10px;
+      font-size: 12px;
+    }
+  
+    h2 {
+      font-size: 20px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .ver-planilla-table th,
+    .ver-planilla-table td {
+      padding: 8px;
+      font-size: 11px;
+    }
+  
+    h2 {
+      font-size: 18px;
+    }
+  }
+  

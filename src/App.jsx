@@ -24,6 +24,8 @@ import AgregarMascota from "./Empleado/AgregarMascota";
 import ProductoDetalle from "./Dashboard/ProductoDetalle";
 import AgendarCita from "./Dashboard/AgendarCita";
 import Factura from "./Dashboard/Factura"; // Aquí se importa Factura
+//nueva la comente por que da error
+//import VerPlanillaEmpleado from "./Empleado/VerPlanillaEmpleado";
 
 function App() {
   const [carrito, setCarrito] = useState([]); // Estado global del carrito

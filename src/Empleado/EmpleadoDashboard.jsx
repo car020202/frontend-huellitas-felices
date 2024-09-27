@@ -7,7 +7,7 @@ import dogImage from "../assets/perritohome.png"; // Imagen del perro en el bann
 import backgroundShapes from "../assets/fondo.png"; // Imagen de formas detrás del perro
 
 // Aquí importamos las imágenes de las cards
-import datingImage from "../assets/calendario.webp";
+import CalendarioImage from "../assets/calendario.webp";
 import CrearCitaImage from "../assets/crearcita.webp";
 import Planilla from "../assets/planilla.jpg";
 import crearcliente from "../assets/sara.jpg";
@@ -59,7 +59,7 @@ function Dashboard() {
         </div>
 
         <div className="card" onClick={() => navigate("/citas/calendario")}>
-          <img src={datingImage} alt="vistaCalendario" />
+          <img src={CalendarioImage} alt="vistaCalendario" />
           <div className="card-text">
             <h3>Ver Calendario de citas</h3>
             <p>Consulta las citas </p>
@@ -75,7 +75,7 @@ function Dashboard() {
         </div>
 
         <div className="card" onClick={() => navigate("")}>
-          <img src={Planilla} alt="CrearCita" />
+          <img src={Planilla} alt="Ver-Planilla-Empleado" />
           <div className="card-text">
             <h3>Ver Planilla</h3>
             <p>Ver tu planilla</p>
