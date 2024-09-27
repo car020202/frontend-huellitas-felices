@@ -5,6 +5,8 @@ import jsPDF from "jspdf";
 import "jspdf-autotable"; // Importar el plugin autoTable
 import axios from "axios"; // Importar Axios para las solicitudes HTTP
 import "./VerPlanillaEmpleado.css";
+import logo from "../assets/huellitas.png"; // Asegúrate de que la ruta sea correcta
+
 
 function VerPlanillaEmpleado() {
   const [payrollData, setPayrollData] = useState([]);
@@ -49,57 +51,88 @@ function VerPlanillaEmpleado() {
 
     fetchPayrollData();
   }, [userData, token]);
+   // Función auxiliar para asegurarse de que el valor es un número
+   const formatCurrency = (value) => {
+    const number = parseFloat(value);
+    return isNaN(number) ? "$0.00" : `$${number.toFixed(2)}`;
+  };
 
   // Función para generar y descargar el PDF para una planilla específica
-  const downloadPDF = (item) => {
+  const downloadPDF = (planilla) => {
     const doc = new jsPDF();
+    doc.setFontSize(14);
+
+    // Agregar el logo al PDF
+    doc.addImage(logo, "PNG", 14, 10, 30, 15); // (imagen, formato, x, y, ancho, alto)
+
+    // Título de la empresa
+    doc.text("Huellitas Felices", 60, 30, { align: "center" });
+
+    // Título del documento
     doc.setFontSize(12);
-    doc.text("Planilla de Empleados", 14, 22);
+    doc.text("Estado de Pago", 60, 40, { align: "center" });
 
-    const headers = [
-      "ID",
-      "Fecha de Pago",
-      "Periodo Inicial",
-      "Periodo Final",
-      "Salario Base",
-      "Bonificaciones",
-      "Deducciones",
-      "Monto Total",
-      "Método de Pago",
-      "Estado de Pago",
-    ];
+    // Detalles
+    doc.setFontSize(10);
+    
+    doc.text(`Fecha: ${new Date().toLocaleDateString()}`, 14, 62);
 
-    const rowData = [
-      item.id_planilla,
-      item.fecha_pago,
-      item.periodo_inicial,
-      item.periodo_fin,
-      item.salario_base,
-      item.bonificaciones,
-      item.deducciones,
-      item.monto_total,
-      item.metodo_pago,
-      item.estado_pago,
-    ];
+    // Separador
+    doc.line(10, 66, 200, 66); // Línea horizontal
+    let currentY = 72; // Variable para controlar la posición vertical
 
-    doc.autoTable({
-      head: [headers],
-      body: [rowData],
-      startY: 30,
-      theme: "grid",
-      headStyles: {
-        fillColor: [255, 245, 221],
-        textColor: [0, 0, 0],
-      },
-      styles: {
-        cellWidth: "auto",
-        minCellHeight: 10,
-      },
-      margin: { top: 20 },
-    });
+    // Ingresos
+    doc.setFontSize(11);
+    doc.text("INGRESOS", 14, currentY);
+    currentY += 10; // Aumentar la posición Y
+    doc.text(
+      `Salario Base: ${formatCurrency(planilla.salario_base)}`,
+      14,
+      currentY
+    );
+    currentY += 10; // Aumentar la posición Y
+    doc.text(
+      `Bonificaciones: ${formatCurrency(planilla.bonificaciones)}`,
+      14,
+      currentY
+    );
+    currentY += 10; // Aumentar la posición Y
 
-    doc.save(`planilla_empleado_${item.id_planilla}.pdf`);
+    // Separador
+    currentY += 10; // Espacio antes de Deducciones
+    doc.line(10, currentY - 5, 200, currentY - 5); // Línea horizontal
+    doc.text("DEDUCCIONES", 14, currentY);
+    currentY += 10; // Aumentar la posición Y
+    doc.text(
+      `Deducciones: ${formatCurrency(planilla.deducciones)}`,
+      14,
+      currentY
+    );
+    currentY += 10; // Aumentar la posición Y
+
+    // Total
+    currentY += 10; // Espacio antes del total
+    doc.line(10, currentY - 5, 200, currentY - 5); // Línea horizontal
+    doc.text(
+      `Monto Total: ${formatCurrency(planilla.monto_total)}`,
+      14,
+      currentY
+    );
+    currentY += 10; // Aumentar la posición Y
+    doc.text(`Método de Pago: ${planilla.metodo_pago}`, 14, currentY);
+    currentY += 10; // Aumentar la posición Y
+    doc.text(`Estado: ${planilla.estado_pago}`, 14, currentY);
+
+    // Línea final
+    currentY += 10; // Espacio antes de finalizar
+    doc.line(10, currentY - 5, 200, currentY - 5); // Línea horizontal
+    currentY += 10; // Aumentar la posición Y
+    doc.text("Gracias por su preferencia", 14, currentY);
+
+    // Descargar el PDF
+    doc.save(`estado_pago_${planilla.id_planilla}.pdf`);
   };
+
 
   return (
     <>
