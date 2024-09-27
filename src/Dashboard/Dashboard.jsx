@@ -1,20 +1,15 @@
 import React from "react";
 import Navbar from "../Navbar/NavbarLogiado";
 import Footer from "../Footer/Footer";
+import Chatbot from "./Chatbot"; // Importamos el Chatbot
 import "./Dashboard.css";
-import dogImage from "../assets/perritohome.png"; // Imagen del perro en el banner
-import backgroundShapes from "../assets/fondo.png"; // Imagen de formas detrás del perro
-
-// Aquí importamos las imágenes .de las cards
+import dogImage from "../assets/perritohome.png";
+import backgroundShapes from "../assets/fondo.png";
 import datingImage from "../assets/hola1.jpg";
 import consultationsImage from "../assets/perro2.png";
 import productsImage from "../assets/gato.png";
 import crearcita from "../assets/crearcita.webp";
-
-// Aquí importamos las imágenes de la sección
 import TreatmentsImage from "../assets/traetmeantsf.png";
-
-// Importamos las imágenes de los íconos para la sección de Contacto
 import locationIcon from "../assets/ubicacion_icon.svg";
 import emailIcon from "../assets/email_icon.svg";
 import phoneIcon from "../assets/telefono_icon.svg";
@@ -38,7 +33,12 @@ function Dashboard() {
           <img src={dogImage} alt="Dog" className="dog-image" />
         </div>
       </section>
-
+      
+      <div className="dashboard">
+        {/* Aquí se agrega el Chatbot debajo del banner o donde lo desees */}
+        <Chatbot />
+      </div>
+      
       <div className="cards">
         <a href="/cliente/citas" className="card">
           <img src={datingImage} alt="Dating" />
@@ -57,10 +57,10 @@ function Dashboard() {
         </a>
 
         <a href="/cliente/agendar-cita" className="card">
-          <img src={crearcita} alt="crearcita" />
+          <img src={crearcita} alt="Agendar Cita" />
           <div className="card-text">
             <h3>Agendar cita</h3>
-            <p></p>
+            <p>Agenda fácilmente las citas de tu mascota.</p>
           </div>
         </a>
       </div>
@@ -123,6 +123,7 @@ function Dashboard() {
           <img src={contactImage} alt="Dog" />
         </div>
       </section>
+
       <section className="map-section">
         <div className="map-container">
           <iframe
@@ -136,6 +137,7 @@ function Dashboard() {
           ></iframe>
         </div>
       </section>
+
       <Footer />
     </>
   );

@@ -26,7 +26,7 @@ import AgendarCita from "./Dashboard/AgendarCita";
 import Factura from "./Dashboard/Factura"; // Aquí se importa Factura
 //nueva la comente por que da error
 import VerPlanillaEmpleado from "./Empleado/VerPlanillaEmpleado";
-
+import Chatbot from "./Dashboard/Chatbot";
 function App() {
   const [carrito, setCarrito] = useState([]); // Estado global del carrito
 
@@ -43,7 +43,7 @@ function App() {
 
         {/* Ruta para el login */}
         <Route path="/login" element={<Login />} />
-
+        <Route path="/chatbot" element={<Chatbot />} />
         {/* Rutas para el cliente */}
         <Route
           path="/dashboard"
