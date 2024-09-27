@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./Login/Login";
 import Dashboard from "./Dashboard/Dashboard";
-import EmployeeDashboard from "./EmployeeDashboard/EmployeeDashboard"; 
-import EmpleadoDashboard from "./Empleado/EmpleadoDashboard"; 
+import EmployeeDashboard from "./EmployeeDashboard/EmployeeDashboard";
+import EmpleadoDashboard from "./Empleado/EmpleadoDashboard";
 import PlanillaView from "./EmployeeDashboard/PlanillaView";
 import CrearPlanilla from "./EmployeeDashboard/CrearPlanilla";
 /* nuevas */
@@ -19,13 +19,13 @@ import AdminDashboard from "./Admin/AdminDashboard";
 import AgregarProductos from "./Admin/AgregarProductos";
 import AgregarProductoDetalle from "./Admin/AgregarPrdoctoDetalle";
 import CrearUsuario from "./Admin/CrearUsuario";
-import AgregarCliente from "./Empleado/AgregarCliente"; 
-import AgregarMascota from "./Empleado/AgregarMascota"; 
+import AgregarCliente from "./Empleado/AgregarCliente";
+import AgregarMascota from "./Empleado/AgregarMascota";
 import ProductoDetalle from "./Dashboard/ProductoDetalle";
 import AgendarCita from "./Dashboard/AgendarCita";
 import Factura from "./Dashboard/Factura"; // Aquí se importa Factura
 //nueva la comente por que da error
-//import VerPlanillaEmpleado from "./Empleado/VerPlanillaEmpleado";
+import VerPlanillaEmpleado from "./Empleado/VerPlanillaEmpleado";
 
 function App() {
   const [carrito, setCarrito] = useState([]); // Estado global del carrito
@@ -38,7 +38,6 @@ function App() {
   return (
     <Router>
       <Routes>
-
         {/* Ruta de inicio */}
         <Route path="/" element={<Login />} />
 
@@ -58,7 +57,10 @@ function App() {
           path="/cliente/productos"
           element={
             <ProtectedRoute roles={["usuario"]}>
-              <ProductosCliente carrito={carrito} agregarAlCarrito={agregarAlCarrito} />
+              <ProductosCliente
+                carrito={carrito}
+                agregarAlCarrito={agregarAlCarrito}
+              />
             </ProtectedRoute>
           }
         />
@@ -202,7 +204,7 @@ function App() {
           path="/empleado/agregar-cliente"
           element={
             <ProtectedRoute roles={["empleado"]}>
-              <AgregarCliente /> 
+              <AgregarCliente />
             </ProtectedRoute>
           }
         />
@@ -210,11 +212,18 @@ function App() {
           path="/empleado/agregar-mascota"
           element={
             <ProtectedRoute roles={["empleado"]}>
-              <AgregarMascota /> 
+              <AgregarMascota />
             </ProtectedRoute>
           }
         />
-
+        <Route
+          path="/empleado/ver-planilla"
+          element={
+            <ProtectedRoute roles={["empleado"]}>
+              <VerPlanillaEmpleado />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </Router>
   );

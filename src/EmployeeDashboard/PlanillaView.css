@@ -1,6 +1,32 @@
+.header-container {
+  display: flex;
+  justify-content: space-between; /* Espacio entre el título y el botón */
+  align-items: center; /* Alinear verticalmente */
+  margin-bottom: 20px; /* Espacio debajo del contenedor */
+  width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+}
+
+.planilla-title {
+  flex: 1; /* Permite que el título ocupe el espacio disponible */
+  text-align: center; /* Centrar el texto del título */
+  margin: 0; /* Eliminar márgenes predeterminados */
+}
+
+.download-all-button {
+ 
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
 .planilla-section {
   padding: 2rem;
   background-color: #E5F3FF;
+  text-align: center; /* Centrar todos los textos dentro de este contenedor */
 }
 
 .planilla-container {

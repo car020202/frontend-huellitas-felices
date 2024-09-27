@@ -105,7 +105,7 @@ function Dashboard() {
                   className="contact-icon-image"
                 />
               </div>
-              <p>huellitasfelices@c.com</p>
+              <p>huellitasfelicesjc@gmail.com</p>
             </div>
             <div className="contact-info">
               <div className="contact-icon">

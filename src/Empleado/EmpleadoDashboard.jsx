@@ -42,7 +42,10 @@ function Dashboard() {
 
       <div className="cards">
         {/* Cada card ahora tiene un onClick para redirigir */}
-        <div className="card" onClick={() => navigate("/empleado/agregar-cliente")}>
+        <div
+          className="card"
+          onClick={() => navigate("/empleado/agregar-cliente")}
+        >
           <img src={crearcliente} alt="Crear-Cliente" />
           <div className="card-text">
             <h3>Crear Clientes</h3>
@@ -50,7 +53,10 @@ function Dashboard() {
           </div>
         </div>
 
-        <div className="card" onClick={() => navigate("/empleado/agregar-mascota")}>
+        <div
+          className="card"
+          onClick={() => navigate("/empleado/agregar-mascota")}
+        >
           <img src={agregarmascota} alt="Agregar-Mascota" />
           <div className="card-text">
             <h3>Agregar Mascota</h3>
@@ -74,8 +80,11 @@ function Dashboard() {
           </div>
         </div>
 
-        <div className="card" onClick={() => navigate("")}>
-          <img src={Planilla} alt="Ver-Planilla-Empleado" />
+        <div
+          className="card"
+          onClick={() => navigate("/empleado/ver-planilla")}
+        >
+          <img src={Planilla} alt="Ver Planilla" />
           <div className="card-text">
             <h3>Ver Planilla</h3>
             <p>Ver tu planilla</p>
@@ -104,7 +113,7 @@ function Dashboard() {
                   className="contact-icon-image"
                 />
               </div>
-              <p>huellitasfelices@c.com</p>
+              <p>huellitasfelicesjc@gmail.com</p>
             </div>
             <div className="contact-info">
               <div className="contact-icon">

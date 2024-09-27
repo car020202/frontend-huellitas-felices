@@ -1,13 +1,56 @@
-/* Estilos para el contenedor del formulario */
-.form-container {
-    width: 1200px;
-    height: 900px !important; /* Esto forzará la altura */
-    margin: 150px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ajusta según sea necesario */
 }
+
+.container {
+  display: flex; /* Usar flex para alinear la imagen y el formulario */
+  justify-content: space-between; /* Espacio entre la imagen y el formulario */
+  align-items: center; /* Alinear verticalmente */
+  width: 80%; /* Ajusta el ancho según sea necesario */
+}
+
+.form-image {
+  flex: 1; /* Permitir que la imagen ocupe espacio disponible */
+  display: flex; /* Usar flex para centrar la imagen */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+}
+
+.form-section {
+  flex: 1; /* Permitir que el formulario ocupe espacio disponible */
+  padding: 20px; /* Espacio interno para el formulario */
+}
+
+.form-group {
+  margin-bottom: 15px; /* Espacio entre campos del formulario */
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between; /* Espacio entre los botones */
+  margin-top: 20px; /* Espacio arriba de los botones */
+}
+
+.btn-guardar,
+.btn-cancel {
+ 
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+.btn-guardar:hover,
+.btn-cancel:hover {
+  opacity: 0.8; /* Efecto hover */
+}
+
 
   
   /* Grid con dos columnas: divide el contenido */

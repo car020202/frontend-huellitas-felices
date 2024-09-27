@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import Navbar from "../Navbar/NavbarEmpleado";
 import "./AgregarCliente.css";
+import imagenCliente from "../assets/sara.jpg"; // Asegúrate de cambiar esta ruta a la imagen correcta
 
 const AgregarCliente = () => {
-  // Definir estados para los campos del formulario
   const [nombre, setNombre] = useState("");
   const [correo, setCorreo] = useState("");
   const [contraseña, setContraseña] = useState("");
-  const [mensaje, setMensaje] = useState(""); // Estado para el mensaje de éxito o error
-  const [showModal, setShowModal] = useState(false); // Estado para controlar el modal de éxito
+  const [mensaje, setMensaje] = useState("");
+  const [error, setError] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
-  // Función para manejar el envío del formulario
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -24,30 +24,26 @@ const AgregarCliente = () => {
           nombre,
           correo,
           contraseña,
-          id_roles: 3 // El rol del cliente es 3, asegúrate de que esto es consistente en el backend
+          id_roles: 3,
         }),
       });
 
       if (response.ok) {
         setMensaje("Cliente agregado con éxito.");
-        setShowModal(true); // Mostrar el modal de éxito
-
-        // Limpiar los campos del formulario después de agregar el cliente
+        setShowModal(true);
         setNombre("");
         setCorreo("");
         setContraseña("");
 
-        // Ocultar el modal después de unos segundos
         setTimeout(() => {
           setShowModal(false);
         }, 2000);
-
       } else {
         const errorResponse = await response.json();
-        setMensaje(`Error al agregar el cliente: ${errorResponse.message}`);
+        setError(`Error al agregar el cliente: ${errorResponse.message}`);
       }
     } catch (error) {
-      setMensaje("Error en la solicitud.");
+      setError("Error en la solicitud.");
       console.error("Error en la solicitud:", error);
     }
   };
@@ -58,11 +54,15 @@ const AgregarCliente = () => {
         <Navbar />
       </header>
       <div className="background">
-        <div className="overlay-container">
-          <div className="form-container">
+        <div className="container">
+          <div className="form-image">
+            <img src={imagenCliente} alt="Imagen Cliente" />
+          </div>
+          <div className="form-section">
             <h1>Agregar Cliente</h1>
             {mensaje && <p>{mensaje}</p>}
-            <form onSubmit={handleSubmit}>
+            {error && <p className="error-message">{error}</p>} {/* Mostrar error si existe */}
+            <form className="form" onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="nombre">Nombre Completo:</label>
                 <input
@@ -102,9 +102,12 @@ const AgregarCliente = () => {
                 />
               </div>
 
-              <button type="submit" className="btn-guardar">
-                Agregar Cliente
-              </button>
+              <div className="button-container">
+                <button type="submit" className="btn-guardar">
+                  Agregar Cliente
+                </button>
+                
+              </div>
             </form>
           </div>
         </div>

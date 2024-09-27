@@ -56,8 +56,8 @@ const VistaCalendarioCitas = () => {
   return (
     <>
       <Navbar />
-      <div className="background">
-        <div className="containerCalendario">
+      <div className="contenedorVC">
+        <div className="containerCalendario1">
           <h1>Calendario de Citas</h1>
           <div className="calendar-container">
             <h2>Seleccionar Una Fecha</h2>
@@ -66,7 +66,7 @@ const VistaCalendarioCitas = () => {
           </div>
         </div>
 
-        <div className="container">
+        <div className="containervc">
           <div className="lista-citas">
             <h2>Citas Programadas para {value.toDateString()}</h2>
             <table className="table">
@@ -110,7 +110,7 @@ const VistaCalendarioCitas = () => {
             </table>
           </div>
         </div>
-      </div>
+        </div>
       <Footer />
     </>
   );

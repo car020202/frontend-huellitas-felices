@@ -2,36 +2,21 @@
 * {
   box-sizing: border-box;
 }
-
-
-.background {
-  position: relative;
-  min-height: 100vh; /* Asegura que cubra toda la pantalla */
+.contenedorVC{
+  padding: 20px 40px; /* Reducir padding superior */
+  text-align: center;
+  background: linear-gradient(135deg, #d0e9f5 50%, #FFF4e4 50%);
+  min-height: 100vh;
   display: flex;
-  flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
-  align-items: center;
-  overflow: hidden; /* Desactiva el scroll en toda la página */
+  flex-direction: column;
+  align-items: center; /* Asegura que todo esté centrado */
 }
-
-.background::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url('../assets/backgroundCalendario.jpeg'); /* Asegúrate de que la ruta sea correcta */
-  background-size: cover;
-  background-position: center;
-  opacity: 0.77;
-  z-index: -1;
-}
-
 
 /* Contenedor del calendario */
-.containerCalendario {
+.containerCalendario1 {
+  background-color: #007bff;
   width: 80%; /* Ajusta el ancho del contenedor */
-  margin: 50px auto;
+  margin: 0px auto; /* Margen automático para centrar el contenedor */
   padding: 30px;
   background-color: rgba(255, 255, 255, 0.85); /* Fondo blanco semi-transparente */
   border-radius: 10px;
@@ -41,9 +26,8 @@
   align-items: center;
   justify-content: center;
 }
-
 /* Título del calendario */
-.containerCalendario h1 {
+.containerCalendario1 h1 {
   font-size: 28px; /* Aumenta el tamaño del título */
   color: #333;
   margin-bottom: 20px;
@@ -71,7 +55,6 @@
   color: #555;
 }
 
-
 .react-calendar {
   width: 100% !important; /* Asegura que el calendario ocupe el 100% del ancho del contenedor */
   max-width: 100%; /* Evita que el calendario exceda el ancho */
@@ -93,9 +76,10 @@
 }
 
 .react-calendar__tile--now {
-  background-color: #28a745 !important; /* Color amarillo para la fecha actual */
+  background-color: #28a745 !important; /* Color verde para la fecha actual */
   color: #fff !important;
 }
+
 .react-calendar__navigation {
   display: flex;
   justify-content: center;
@@ -115,34 +99,36 @@
 
 /* Responsivo para pantallas pequeñas */
 @media (max-width: 768px) {
-  .containerCalendario {
-      width: 95%; /* Aumenta el ancho en pantallas pequeñas */
-      padding: 20px;
+  .containerCalendario1 {
+    width: 95%; /* Aumenta el ancho en pantallas pequeñas */
+    padding: 20px;
   }
 
   .calendar-container {
-      width: 100%;
+    width: 100%;
   }
 
-  .containerCalendario h1 {
-      font-size: 24px; /* Ajusta el tamaño del título en pantallas pequeñas */
+  .containerCalendario1 h1 {
+    font-size: 24px; /* Ajusta el tamaño del título en pantallas pequeñas */
   }
 
   .calendar-container h2 {
-      font-size: 18px; /* Ajusta el tamaño del subtítulo en pantallas pequeñas */
+    font-size: 18px; /* Ajusta el tamaño del subtítulo en pantallas pequeñas */
   }
 }
 
-
-.container {
-  width: 90%; /* Ancho un poco mayor */
-  margin: 50px auto;
+.containervc {
+  width: 80%; /* Ancho del contenedor */
+  margin: 20px auto; /* Margen automático para centrar el contenedor */
+  margin-bottom: 50px; /* Espacio inferior para evitar pegado al footer */
   border-radius: 10px;
   font-family: Arial, sans-serif;
-  background-color: rgba(255, 255, 255, 0.77); /* Fondo semi-transparente para ver la imagen de fondo */
-  padding: 40px; /* Aumenta el padding */
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.77); /* Fondo semi-transparente */
+  padding: 40px; /* Espacio interno del contenedor */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  display: flex;
+  flex-direction: column; /* Alinear elementos verticalmente */
+  align-items: center; /* Centrar horizontalmente */
 }
 
 /* Título general */
@@ -172,7 +158,6 @@ h1 {
   border-collapse: collapse;
   margin-bottom: 20px;
   font-size: 16px; /* Aumenta el tamaño de la fuente */
-  
 }
 
 .table th, .table td {
@@ -181,8 +166,8 @@ h1 {
   text-align: left;
   font-size: 16px; /* Aumenta el tamaño de la fuente */
   white-space: nowrap; /* Evita que el texto se divida en varias líneas */
-
 }
+
 /* Responsivo */
 @media (max-width: 768px) {
   .container {
