@@ -68,7 +68,7 @@ const Navbar = () => {
               </li>
               <li className="nav-item">
                 {/* Evento onClick para cerrar sesión y redirigir */}
-                <a className="btn btn-outline btn-login" onClick={handleLoginClick} style={{ cursor: 'pointer' }}>
+                <a className="nav-link btn btn-outline btn-login" onClick={handleLoginClick} style={{ cursor: 'pointer' }}>
                   Cerrar Sesión
                 </a>
               </li>

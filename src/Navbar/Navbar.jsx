@@ -64,7 +64,7 @@ const Navbar = () => {
               </li>
               <li className="nav-item">
                 {/* Evento onClick para redirigir a la página de login */}
-                <a className="nav-link btn btn-outline btn-login" href="#" onClick={handleLoginClick}>
+                <a className="nav-link " href="#" onClick={handleLoginClick}>
                   Iniciar Sesión
                 </a>
               </li>
